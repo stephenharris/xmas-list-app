@@ -1,0 +1,20 @@
+.signUpContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+.signUpContainer ol {
+	max-width: 400px;
+}
+
+.signUpContainer ol li {
+	margin: 40px 0;
+}
+
+
+
+.signUpContainer ol strong{
+	display:block;
+}

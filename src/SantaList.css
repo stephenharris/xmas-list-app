@@ -1,0 +1,108 @@
+#SantaList .scroll {
+	width: 25px;
+	height: 200px;
+	transform:rotate(-55deg);
+	background: #F8ECC2;
+	position:absolute;
+	z-index:2;
+	top:100px;
+	left:80px;
+	border-radius:35px;
+}
+  
+#SantaList .scroll::before{
+	background:#F8ECC2;
+	box-shadow: inset 0 0 2px 2px rgba(0,0,0,1);
+	content: ' ';
+	width:35px;
+	height:35px;
+	border-radius:35px;
+	position:absolute;
+	left:-10px;
+	top:-5px;	
+	background:#F8ECC2;
+  content: ' ';
+  width: 35px;
+  height: 35px;
+  border-radius: 35px;
+  position: absolute;
+  left: -16px;
+  top: -5px;
+  border: 5px solid
+  hsl(46.7, 79.4%, 22.7%);
+  border-right: none;
+  border-bottom: none;
+  transform: rotate(-41deg);
+}
+  
+#SantaList .hand.left::before{background:#FFF1C8}
+#SantaList.santa{position:relative;width:334px;height:360px;margin-right:50px;}
+
+/*HAT*/
+#SantaList .hat{width:101px;height:101px;border-radius:0 0 100px 0;background:#E64604;position:absolute;top:16px;right:39px}
+#SantaList .hat::before,
+#SantaList .hat::after{content:'';background:#fff;width:30px;height:16px;border-radius:15px 0 15px 0;position:absolute;top:-15px;right:-30px}
+#SantaList .hat::after{top:0;border-radius:0 15px 0 15px}
+  
+  /*HEAD*/
+#SantaList .head{width:202px;height:201px;border-radius:100%;right:40px;top:17px;position:absolute;z-index:3;
+  background:linear-gradient(to bottom, #F0E5D8 0%, #F0E5D8 50%, #fff 50%, #fff 100%);
+  background:-webkit-linear-gradient(top, #F0E5D8 0%, #F0E5D8 50%, #fff 50%, #fff 100%);}
+  
+#SantaList .face{width:136px;height:68px;background:blue;border-radius:68px 68px 0 0;position:absolute;left:33px;top:32px;z-index:-1;overflow:hidden;
+  background:linear-gradient(to right, #F1C1A0 0%, #F1C1A0 50%, #F4D1B9 50%, #F4D1B9 100%);
+  background:-webkit-linear-gradient(left, #F1C1A0 0%, #F1C1A0 50%, #F4D1B9 50%, #F4D1B9 100%);}
+#SantaList .face::before,
+#SantaList .face::after{content:'';display:block;width:66px;height:33px;background:#F49598;border-radius:33px 33px 0 0;position:absolute;top:35px;left:-31px;}
+#SantaList .face::after{left:auto;right:-31px}
+  
+#SantaList .eye,
+#SantaList .nose{width:14px;height:14px;background:#0972C9;border-radius:100%;position:absolute;left:71px;top:74px;z-index:1}
+#SantaList .eye::before{content:'';display:block;width:30px;height:15px;background:#fff;border-radius:15px 0;position:absolute;left:-13px;top:-22px;transform:rotate(15deg);transition:all 400ms;-webkit-transition:all 400ms}
+#SantaList .eye.right{left:auto;right:70px}
+#SantaList .eye.right::before{border-radius:0 15px;left:-3px; transform:rotate(-15deg);}
+  
+#SantaList .nose{background:#F49598;margin-top:93px;margin-left:94px;position:static;}
+#SantaList .nose::before,
+#SantaList .nose::after{content:'';width:68px;height:34px;background:#F0E5D8;border-radius:34px 0;position:absolute;z-index:-1;margin-left:-61px;margin-top:7px;transition:all 400ms;-webkit-transition:all 400ms}
+#SantaList .nose::after{border-radius:0 34px;margin-left:7px}
+  
+/*BODY*/
+#SantaList .body{background:#E64604;width:202px;height:201px;border-radius:45% 45% 43% 42% / 42% 42% 37% 37%;bottom:17px;right:40px;position:absolute;}
+#SantaList .body::before{content:'';width:45px;height:17px;background:#F0E5D8;position:absolute;top:73px;left:78px;}
+  
+#SantaList .hand{position:absolute;background:inherit;height:110px;width:110px;border-radius:0 110px 0 0;right:-40px;top:-3px;transform: rotate(73deg);right: -8px;}
+#SantaList .hand::after{content:'';position:absolute;width:40px;height:36px;background:#F4D1B9;border-radius:0 0 20px 20px;top:110px;left:70px;box-shadow:inset 0 16px 0 #fff}
+  
+#SantaList .hand.right{z-index: 2;}
+  
+#SantaList .hand.left{right:auto;left:-51px;top:-35px;transform:rotate(135deg);-webkit-transform:rotate(135deg);-ms-transform:rotate(135deg);}
+#SantaList .hand.left::before{content:'';position:absolute;width:85px;height:85px;border-radius:0 110px 0 0;top:61px;left:1.5px;transform:rotate(33deg);-webkit-transform:rotate(33deg);-ms-transform:rotate(33deg);}
+  
+#SantaList .belt{width:100%;height:33px;position:absolute;top:90px;background:linear-gradient(to right, #391100 0%, #391100 15.5%, transparent 15.5%, transparent 23.5%, #391100 23.5%, #391100 61.5%, #402E25 61.5%, #402E25 76.5%, transparent 76.5%, transparent 84%, #402E25 84%);background:-webkit-linear-gradient(left, #391100 0%, #391100 15.5%, transparent 15.5%, transparent 23.5%, #391100 23.5%, #391100 61.5%, #402E25 61.5%, #402E25 76.5%, transparent 76.5%, transparent 84%, #402E25 84%);}
+#SantaList .belt::before{content:'-';display:block;position:absolute;height:17px;width:29px;border:8px solid #FEDE25;left:78px;z-index:1;color:#FEDE25;font:bold 40px/10px Arial, Helvetica, sans-serif;text-indent:18px;text-align:right;}
+#SantaList .belt::after{content:'';display:block;position:absolute;height:33px;width:33px;left:106px;border-radius:100%;background:#391100;}
+  
+#SantaList .shoes{width:100px;height:17px;border-radius:17px 17px 0 0;background:black;position:absolute;bottom:-17px;left:50px}
+#SantaList .shoes::before{content:'';width:45px;height:38px;background:#FFF1C8;position:absolute;top:-21px;left:27px}
+#SantaList .shoes::after{content:'';width:45px;height:4px;border-radius:100%;background:#E64604;position:absolute;left:19px;top:-23px}
+  
+/*Hand Animation*/
+@-webkit-keyframes shakeHand{
+  0%  {-webkit-transform:rotate(135deg)}
+  50% {-webkit-transform:rotate(155deg)}
+  100%{-webkit-transform:rotate(135deg)}
+}
+@keyframes shakeHand{
+  0%  {transform:rotate(135deg);-ms-transform:rotate(135deg)}
+  50% {transform:rotate(155deg);-ms-transform:rotate(155deg)}
+  100%{transform:rotate(135deg);-ms-transform:rotate(135deg)}
+}
+  
+/*HOVER STATES*/
+#SantaList .santa:hover .eye::before{
+	transform:rotate(15deg);
+}
+#SantaList .santa:hover .eye.right::before{
+	transform:rotate(-15deg);
+}

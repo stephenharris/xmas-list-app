@@ -1,0 +1,140 @@
+[
+    {
+        "id": "unknown",
+        "name": "Unknown",
+        "emoji": "",
+        "budget": 0
+    },
+    {
+        "id": "ignore",
+        "name": "Ignore",
+        "emoji": "",
+        "ignore": true
+    },
+    {
+        "id": "groceries",
+        "name": "Groceries",
+        "emoji": "🍏",
+        "budget": "66000"
+    },
+    {
+        "id": "transport",
+        "name": "Transport",
+        "emoji": "🚌",
+        "budget": "10600"
+    },
+
+    {
+        "id": "mortgage",
+        "name": "Mortgage",
+        "emoji": "🏡",
+        "budget": "92500"
+    },
+
+    {
+        "id": "energy",
+        "name": "Gas / Electricity",
+        "emoji": "⚡",
+        "budget": "6100"
+    },
+
+    {
+        "id": "internet",
+        "name": "Internet / Phones",
+        "emoji": "🌐",
+        "budget": "4500"
+    },
+
+    {
+        "id": "tithe",
+        "name": "Tithe",
+        "emoji": "✝️",
+        "budget": "32000"
+    },
+    {
+        "id": "savings",
+        "name": "Savings",
+        "emoji": "💰",
+        "budget": "15000"
+    },
+    {
+        "id": "family-outing",
+        "name": "Family outings",
+        "emoji": "👨‍👩‍👧‍👧",
+        "budget": "5000"
+    },
+    {
+        "id": "us",
+        "name": "Us",
+        "emoji": "👫",
+        "budget": "5000"
+    },
+    {
+        "id": "tax",
+        "name": "Council Tax",
+        "emoji": "🧾",
+        "budget": "14300"
+    },
+
+    {
+        "id": "birthdays",
+        "name": "Birthdays",
+        "emoji": "🎂",
+        "budget": "25000"
+    },
+
+    {
+        "id": "christmas",
+        "name": "Christmas",
+        "emoji": "🎄",
+        "budget": "50000"
+    },
+
+    {
+        "id": "holiday",
+        "name": "Holiday",
+        "emoji": "🌴",
+        "budget": "130000"
+    },
+    {
+        "id": "giving",
+        "name": "Other giving",
+        "emoji": "🎁",
+        "budget": "3000"
+    },
+
+    {
+        "id": "tvlicense",
+        "name": "TV license",
+        "emoji": "📺",
+        "budget": "10300"
+    },
+
+    {
+        "id": "insurance",
+        "name": "Insurance",
+        "emoji": "🧱",
+        "budget": "17289"
+    },
+
+    {
+        "id": "garden",
+        "name": "Garden",
+        "emoji": "🌳",
+        "budget": "22500"
+    },
+
+    {
+        "id": "medical",
+        "name": "Medical",
+        "emoji": "💊",
+        "budget": "6000"
+    },
+    {
+        "id": "lunch",
+        "name": "Lunch",
+        "emoji": "🍔",
+        "budget": "1500"
+    }
+
+]

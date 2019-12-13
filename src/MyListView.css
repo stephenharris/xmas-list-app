@@ -1,0 +1,75 @@
+.share-list {
+    max-width: 750px;
+    margin:auto;
+    background: hsl(141.6, 66.1%, 93.5%);
+    padding: 10px 20px;
+    border: 4px dashed #fd4848;
+}
+
+.copy-list-url {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    flex-direction: column;
+
+}
+
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (min-width: 600px) {
+    .copy-list-url {
+        flex-direction: row;
+    }
+  }
+
+.list-url {
+    font-family: monospace;
+    font-size: 15px;
+}
+.add-item {
+    max-width: 600px;
+    margin: auto;
+    margin-top: 20px;
+    display:flex;
+    flex-direction: column;
+}
+.add-item label {
+    margin:auto;
+}
+    
+.empty-wishlist {
+    text-align: center;
+    margin-bottom:40px;
+}
+
+
+.list {
+	display:flex;
+    flex-direction:column;
+}
+
+.list ol {
+    max-width: 600px;
+    min-width: 300px;
+    margin: auto;
+    padding-left: 0;
+}
+.list ol .item-description {
+    font-family: 'Caveat', cursive;
+    font-size:32px;
+}
+.list ol li {
+    margin: 20px;
+}
+ol li > span {
+    display: flex;
+    justify-content: space-between;
+    align-items: first baseline;
+}
+
+button svg {
+    height: auto;width: 32px;text-align: center;vertical-align: middle
+}
+
+label .mark {
+ font-family:'Open Sans'   
+}

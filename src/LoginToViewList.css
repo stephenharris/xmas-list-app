@@ -1,0 +1,18 @@
+.signInContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top:30px;
+}
+
+.signInContainer form {
+	max-width: 400px;
+}
+
+.signInContainer p {
+	text-align:center;
+} 
+
+.signInContainer .subHeader{
+	font-size: 22px;
+}

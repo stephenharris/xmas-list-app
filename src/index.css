@@ -1,0 +1,26 @@
+html {
+  border-top: 8px solid #fd4848;    
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  background: #FFF0A5;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  padding: 10px;
+  color: #4d3b3b;
+}
+
+h1 {
+  font-family: 'Mountains of Christmas', cursive;
+  font-size: 48px;
+  text-align: center;
+  color:#fd4848;
+  font-weight: bold;
+}
+
+
+html {height: 100%;}
+            body {height: 100%; margin: 0; padding: 0;}

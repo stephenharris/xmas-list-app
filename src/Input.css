@@ -1,0 +1,41 @@
+label{
+    position: relative;
+    display: inline-block;
+    margin-top: 20px;
+}
+label input[type="email"],
+label input[type="text"] {
+    padding: 12px 10px;
+    border:none;
+    border-bottom: 1px solid #c4c4c4;
+    /*width:100%;*/
+    box-sizing: border-box;
+    font-size:18px;
+    /*background: #fff0a5;*/
+    background:none;
+    max-width:290px;
+}
+label input ~ span {
+    position: absolute;
+    left: 6px;
+    top: -0px;
+    padding: 6px;
+    transition-duration: 300ms;
+    transition-timing-function: ease;
+}
+
+label input:focus  {
+    border-bottom: 1px solid #499f68;
+}
+label input.hasValue ~ span,
+label input:focus ~ span {
+    top: -21px;
+    font-size: 13px;
+    /*background:#fff0a5;*/
+    font-weight: 500;
+    color: hsl(0, 0%, 46.4%);
+}
+
+label input:focus ~ span {
+    color: #499f68;
+}
