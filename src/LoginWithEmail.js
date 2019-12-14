@@ -1,7 +1,7 @@
 import React, { useState, useEffect }  from 'react';
 import queryString from 'query-string'
 import { connect } from "react-redux";
-import axios from 'axios';
+import api from './services/api';
 import Santa from './Santa';
 import { setAccessToken } from "./redux/actions";
 import './SignUp.css';
@@ -18,22 +18,17 @@ function LoginWithEmail({match, location, setAccessToken}) {
     console.log("redirect==========>", redirect);
 
     useEffect(() => {
-      axios.post(
-        'https://r70a0wupc9.execute-api.eu-west-2.amazonaws.com/testing/login/',
-        {
-            'strategy':'email',
-            'token': token
-        }
-        )
+      api
+        .loginWithEmail(token)
         .then(function (response) {
           // handle success
           setStatus('success');
           setAccessToken(response.data.token);
         })
-      .catch(function (error) {
-        setStatus('failed');
-        console.log(error);
-      });
+        .catch(function (error) {
+          setStatus('failed');
+          console.log(error);
+        });
     }, []);
       
   return (

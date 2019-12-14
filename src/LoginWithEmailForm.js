@@ -1,5 +1,5 @@
 import React, { useState, useEffect }  from 'react';
-import axios from 'axios';
+import api from './services/api';
 import Button from './Button';
 import Input from './Input';
 import {withRouter} from 'react-router-dom';
@@ -13,21 +13,16 @@ function LoginWithEmailForm({location}) {
   const sendEmailConfirmationLink = (event) => {
     event.preventDefault();
     setState("sending");
-    axios.post(
-        'https://r70a0wupc9.execute-api.eu-west-2.amazonaws.com/testing/confirm-email/',
-        {
-          'email':event.target.email.value,
-          'redirect': location.pathname
-        }
-    )
-    .then(() => {
-        setState("sent");
-    })
-    .catch(function (error) {
-        console.log("error sending email");
-        console.log(error);
-        setState("failed");
-    });
+    api
+      .sendConfirmationEmail(event.target.email.value, location.pathname)
+      .then(() => {
+          setState("sent");
+      })
+      .catch(function (error) {
+          console.log("error sending email");
+          console.log(error);
+          setState("failed");
+      });
   }
 
   return (

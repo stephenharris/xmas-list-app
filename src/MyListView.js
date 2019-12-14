@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from './services/api';
 import { connect } from "react-redux";
 import { getAccessToken, isLoggedIn } from "./redux/selectors";
 import Tree from './Tree';
@@ -24,50 +24,40 @@ function MyListView({accessToken, isUserLoggedIn}) {
   
   useEffect(() => {
     setLoading(true);
-    axios.get(
-      'https://r70a0wupc9.execute-api.eu-west-2.amazonaws.com/testing/list-item/mine/',
-      { headers: {"Authorization" : `Bearer ${accessToken}`} }
-      )
+    api
+      .getMyList()
       .then(function (response) {
         setItems(response.data.items);
         setListId(response.data.listId);
         setLoading(false);
       })
-    .catch(function (error) {
-      setLoading(false);
-      console.log(error);
-    });
+      .catch(function (error) {
+        setLoading(false);
+        console.log(error);
+      });
   }, [listLastChanged]);
 
   const addItem = (description) => {
-    axios.post(
-      'https://r70a0wupc9.execute-api.eu-west-2.amazonaws.com/testing/list-item/',
-      {
-        "description": description 
-      },
-      { headers: {"Authorization" : `Bearer ${accessToken}`} }
-    )
-    .then(function (response) {
-      setListLastChanged((new Date()).getTime());
-    })
-    .catch(function (error) {
-      console.log(error);
-    }); 
+    api
+      .addToMyList(description)
+      .then(function (response) {
+        setListLastChanged((new Date()).getTime());
+      })
+      .catch(function (error) {
+        console.log(error);
+      }); 
   }
 
   const deleteItem = (itemId) => {
-    axios.delete(
-      'https://r70a0wupc9.execute-api.eu-west-2.amazonaws.com/testing/list-item/'+itemId,
-      { headers: {"Authorization" : `Bearer ${accessToken}`} }
-      )
+    api
+      .removeFromMyList(itemId)
       .then((response) => {
         setListLastChanged((new Date()).getTime());
       })
-    .catch(function (error) {
-      console.log(error);
-    }); 
+      .catch(function (error) {
+        console.log(error);
+      }); 
   }
-
 
   const onClickRemove = (event, itemId) => {
     event.preventDefault();

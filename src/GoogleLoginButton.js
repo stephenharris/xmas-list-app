@@ -1,7 +1,7 @@
 import React from 'react';
-import axios from 'axios';
 import { connect } from "react-redux";
 import { setAccessToken } from "./redux/actions";
+import api from './services/api';
 
 class LoginButton extends React.Component{
 
@@ -12,20 +12,15 @@ class LoginButton extends React.Component{
 
   onSignIn(googleUser) {
     console.log('signed in', googleUser.getBasicProfile().getEmail());
-    axios.post(
-      'https://r70a0wupc9.execute-api.eu-west-2.amazonaws.com/testing/login',
-      {
-        strategy: 'google',
-        token: googleUser.getAuthResponse(true).id_token
-      }
-    )
-    .then((response) => {
-      this.props.setAccessToken(response.data.token);
-    })
-    .catch((error) => {
-      //TODO handle failure
-      console.log(error);
-    });
+    api
+      .loginWithGoogle(googleUser.getAuthResponse(true).id_token)
+      .then((response) => {
+        this.props.setAccessToken(response.data.token);
+      })
+      .catch((error) => {
+        //TODO handle failure
+        console.log(error);
+      });
   }
 
   renderGoogleLoginButton() {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from './services/api';
 import { connect } from "react-redux";
 import { getAccessToken, isLoggedIn } from "./redux/selectors";
 import Tree from './Tree';
@@ -27,59 +27,54 @@ function OtherListView({accessToken, match}) {
   
   useEffect(() => {
     setState("loading");
-    axios.get(
-      `https://r70a0wupc9.execute-api.eu-west-2.amazonaws.com/testing/list-item/${listId}/`,
-      { headers: {"Authorization" : `Bearer ${accessToken}`} }
-    )
-    .then((response) => {
-      setItems(response.data.items);
-      setName(response.data.name);
-      setState("success");
-    })
-    .catch(function (error) {
-      if(error.response.status === 403) {
-        setItems([]);
-        setName(null);
-        setState("forbidden");
-      }
-
-      if(error.response.status === 404) {
-        setState("notfound");
-      }
-      console.log(error.response);
-      
-    });
+    api
+      .getList(listId)
+      .then((response) => {
+        setItems(response.data.items);
+        setName(response.data.name);
+        setState("success");
+      })
+      .catch(function (error) {
+        if(error.response.status === 403) {
+          setItems([]);
+          setName(null);
+          setState("forbidden");
+        
+        } else if(error.response.status === 404) {
+          setState("notfound");
+        
+        } else {
+          //TODO handle error state
+          setState("error");
+        }
+        console.log(error.response);
+      });
   }, [listLastChanged]);
 
   const markAsBought = (itemUuid) => {
-    axios.post(
-      `https://r70a0wupc9.execute-api.eu-west-2.amazonaws.com/testing/mark-item/${listId}/${itemUuid}`,
-      {},
-      { headers: {"Authorization" : `Bearer ${accessToken}`} }
-      )
+    api
+      .markAsBought(listId, itemUuid)
       .then(function (response) {
         // handle success
         console.log(response.data);
         setListLastChanged((new Date()).getTime());
       })
-    .catch(function (error) {
-      console.log(error);
-    }); 
+      .catch(function (error) {
+        console.log(error);
+      }); 
   }
 
   const unMarkAsBought = (itemUuid) => {
-    axios.delete(
-      `https://r70a0wupc9.execute-api.eu-west-2.amazonaws.com/testing/mark-item/${listId}/${itemUuid}`,
-      { headers: {"Authorization" : `Bearer ${accessToken}`} }
-      )
+    api
+      .unmarkAsBought(listId, itemUuid)
       .then(function (response) {
         // handle success
         console.log(response.data);
         setListLastChanged((new Date()).getTime());
       })
-    .catch(function (error) {
-      console.log(error);
-    }); 
+      .catch(function (error) {
+        console.log(error);
+      }); 
   }
 
 
