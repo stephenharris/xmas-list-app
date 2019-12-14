@@ -7,6 +7,7 @@ import NotFound from './NotFound';
 import LoginToViewList from './LoginToViewList';
 import Elf from './Elf';
 import LoginWithEmail from './LoginWithEmail';
+import Button from './Button';
 
 import {
   BrowserRouter as Router,
@@ -47,7 +48,7 @@ function App({isUserLoggedIn, loggedInUser, setAccessToken}) {
       <nav>
         <ul>
           <li><Link to="/">My list</Link></li>
-          <li><a href="#" onClick={logOut}>Log-out</a></li>
+          <li><Button variants={["link"]} onClick={logOut}>Log-out</Button></li>
         </ul>
       </nav>
     </div>}
