@@ -94,7 +94,9 @@ function MyListView({accessToken, isUserLoggedIn}) {
     <div>
       <h1>My Christmas List</h1>
        
-      {items && items.length === 0 && <>
+      {isLoading && !listId && <p>Loading....</p>}
+
+      {!isLoading && items && items.length === 0 && <>
         <Tree/>
         <p className="empty-wishlist">Your wish list is empty.</p>
       </> }
@@ -150,14 +152,13 @@ function MyListView({accessToken, isUserLoggedIn}) {
         </>
       }
 
-      <form className="add-item" onSubmit={onSubmit}>
+      {!isLoading && <form className="add-item" onSubmit={onSubmit}>
         <Input style={{"margin":"auto"}} name="description" label="Item"/>
         <Button className="primary" style={{"margin":"auto", "marginTop":"20px"}} type="submit">Add something to your wish list</Button>
-      </form>
+      </form>}
 
     </div>
   );
 }
 
 export default connect(mapStateToProps)(MyListView);
-
