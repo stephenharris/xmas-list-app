@@ -29,22 +29,13 @@ function MyListView({accessToken, isUserLoggedIn}) {
       { headers: {"Authorization" : `Bearer ${accessToken}`} }
       )
       .then(function (response) {
-        // handle success
-        console.log(response.data);
         setItems(response.data.items);
         setListId(response.data.listId);
         setLoading(false);
-        //setTransactions(response.data.transactions.filter((transaction) => transaction.include_in_spending));
       })
     .catch(function (error) {
-      // handle error
-      //if(response.b)
-
       setLoading(false);
       console.log(error);
-      console.log(error.response);
-      console.log(error.response.data.code)
-      
     });
   }, [listLastChanged]);
 
@@ -52,27 +43,15 @@ function MyListView({accessToken, isUserLoggedIn}) {
     axios.post(
       'https://r70a0wupc9.execute-api.eu-west-2.amazonaws.com/testing/list-item/',
       {
-       "description": description 
+        "description": description 
       },
       { headers: {"Authorization" : `Bearer ${accessToken}`} }
-      )
-      .then(function (response) {
-        // handle success
-        console.log(response.data);
-        setListLastChanged((new Date()).getTime());
-        //setList(response.data);
-        //setLoading(false);
-        //setTransactions(response.data.transactions.filter((transaction) => transaction.include_in_spending));
-      })
+    )
+    .then(function (response) {
+      setListLastChanged((new Date()).getTime());
+    })
     .catch(function (error) {
-      // handle error
-      //if(response.b)
-
-      //setLoading(false);
       console.log(error);
-      console.log(error.response);
-      console.log(error.response.data.code)
-      
     }); 
   }
 
@@ -81,23 +60,11 @@ function MyListView({accessToken, isUserLoggedIn}) {
       'https://r70a0wupc9.execute-api.eu-west-2.amazonaws.com/testing/list-item/'+itemId,
       { headers: {"Authorization" : `Bearer ${accessToken}`} }
       )
-      .then(function (response) {
-        // handle success
-        console.log(response.data);
+      .then((response) => {
         setListLastChanged((new Date()).getTime());
-        //setList(response.data);
-        //setLoading(false);
-        //setTransactions(response.data.transactions.filter((transaction) => transaction.include_in_spending));
       })
     .catch(function (error) {
-      // handle error
-      //if(response.b)
-
-      //setLoading(false);
       console.log(error);
-      console.log(error.response);
-      console.log(error.response.data.code)
-      
     }); 
   }
 
@@ -115,16 +82,10 @@ function MyListView({accessToken, isUserLoggedIn}) {
 
   const copyToClipboard = (event) => {
     event.preventDefault();
-    console.log(ref);
-
     ref.current.select();
     document.execCommand('copy');
-    // This is just personal preference.
-    // I prefer to not show the the whole text area selected.
     event.target.focus();
     setIsCopied(true);
-    console.log('copied?');
-
   }
 
   const listUrl = `http://localhost:3000/list/${listId}`;

@@ -6,7 +6,6 @@ import Santa from './Santa';
 import { setAccessToken } from "./redux/actions";
 import './SignUp.css';
 import {Redirect} from "react-router-dom";
-  
 
 function LoginWithEmail({match, location, setAccessToken}) {
 
