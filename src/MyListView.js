@@ -70,8 +70,9 @@ function MyListView({location}) {
     event.target.focus();
     setIsCopied(true);
   }
-
-  const listUrl = `http://localhost:3000/list/${listId}`;
+  
+  let url = window.location.href.replace(/\/$/, "");
+  const listUrl = `${url}/list/${listId}`;
   const ref = React.createRef();
   return (
     <div>
