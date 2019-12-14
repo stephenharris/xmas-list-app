@@ -57,6 +57,11 @@
     font-family: 'Caveat', cursive;
     font-size:32px;
 }
+
+.item-description--bought{
+    text-decoration: line-through
+}
+
 .list ol li {
     margin: 20px;
 }

@@ -5,6 +5,10 @@ import { getAccessToken, isLoggedIn } from "./redux/selectors";
 import Tree from './Tree';
 import './MyListView.css';
 import { setAccessToken } from './redux/actions';
+import classNames from './class-names';
+import NotFound from './NotFound';
+import Forbidden from './Forbidden';
+
 
 const mapStateToProps = state => {
   const accessToken = getAccessToken(state);
@@ -16,32 +20,32 @@ const mapStateToProps = state => {
 function OtherListView({accessToken, match}) {
         
   const [items, setItems] = useState([]);
+  const [name, setName] = useState(null);
   const listId = match.params.listId;
-  const [isLoading, setLoading] = useState(false);
+  const [state, setState] = useState("initial");
   const [listLastChanged, setListLastChanged] = useState((new Date()).getTime());
   
   useEffect(() => {
-    setLoading(true);
+    setState("loading");
     axios.get(
       `https://r70a0wupc9.execute-api.eu-west-2.amazonaws.com/testing/list-item/${listId}/`,
       { headers: {"Authorization" : `Bearer ${accessToken}`} }
-      )
-      .then(function (response) {
-        // handle success
-        console.log(response.data);
-        setItems(response.data.items);
-        //setListId(response.data.listId);
-        setLoading(false);
-        //setTransactions(response.data.transactions.filter((transaction) => transaction.include_in_spending));
-      })
+    )
+    .then((response) => {
+      setItems(response.data.items);
+      setName(response.data.name);
+      setState("success");
+    })
     .catch(function (error) {
-      // handle error
-      //if(response.b)
-
-      if(error.response.data.status === 403) {
-        setAccessToken(null)
+      if(error.response.status === 403) {
+        setItems([]);
+        setName(null);
+        setState("forbidden");
       }
-      setLoading(false);
+
+      if(error.response.status === 404) {
+        setState("notfound");
+      }
       console.log(error.response);
       
     });
@@ -59,14 +63,7 @@ function OtherListView({accessToken, match}) {
         setListLastChanged((new Date()).getTime());
       })
     .catch(function (error) {
-      // handle error
-      //if(response.b)
-
-      setLoading(false);
       console.log(error);
-      console.log(error.response);
-      console.log(error.response.data.code)
-      
     }); 
   }
 
@@ -81,24 +78,13 @@ function OtherListView({accessToken, match}) {
         setListLastChanged((new Date()).getTime());
       })
     .catch(function (error) {
-      // handle error
-      //if(response.b)
-
-      setLoading(false);
       console.log(error);
-      console.log(error.response);
-      console.log(error.response.data.code)
-      
     }); 
   }
 
 
   const onClickToggleMark = (event, item) => {
-    console.log(event.target.value);
-    console.log(event.target.checked);
-    //console.log(event);
     event.preventDefault();
-    //return;
     if(item.boughtBy === null) {
       markAsBought(item.id);
     } else if( item.boughtBy === 'you') {
@@ -108,9 +94,16 @@ function OtherListView({accessToken, match}) {
 
   return (
     <div>
-      <h1>Someone's List</h1>
 
-      {items && items.length === 0 && <>
+      {state === "notfound" && <NotFound/>}
+
+      {state === "forbidden" && <Forbidden/>}
+
+      {name && <h1>{name}'s List</h1>}
+
+      {state === "loading" && !items.length && <p>Loading...</p>}
+
+      {state === "success" && items && items.length === 0 && <>
         <Tree/>
         <p className="empty-wishlist">Your wish list is empty.</p>
       </> }
@@ -121,12 +114,11 @@ function OtherListView({accessToken, match}) {
             {items.map((item) => {
               return (<li key={item.id} id={item.id}>
                 <span>
-                  <span className="item-description">{item.description}</span>
-                  <label className="mark">
+                  <span className={classNames({'item-description--bought': item.boughtBy !== null, 'item-description': true})}>{item.description}</span>
+                  <label className='mark'>
                     <input type="checkbox" disabled={item.boughtBy === 'someonelse'} checked={item.boughtBy} value={item.id} onChange={(event) => onClickToggleMark(event, item)}/>
                     {item.boughtBy === 'you' ?  "You've said you're getting this item" : (item.boughtBy === 'someonelse' ? 'Someone else is getting this' : 'Get this item')}
                   </label>
-                    
                 </span>
               </li>);
             })}
