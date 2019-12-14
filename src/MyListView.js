@@ -138,7 +138,7 @@ function MyListView({location}) {
 
       {!isLoading && <form className="add-item" onSubmit={onSubmit}>
         <Input style={{"margin":"auto"}} name="description" label="Item"/>
-        <Button className="primary" style={{"margin":"auto", "marginTop":"20px"}} type="submit">Add something to your wish list</Button>
+        <Button className="primary" style={{"margin":"auto", "marginBottom":"20px", "marginTop":"20px"}} type="submit">Add something to your wish list</Button>
       </form>}
 
     </div>
