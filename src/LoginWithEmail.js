@@ -15,8 +15,6 @@ function LoginWithEmail({match, location, setAccessToken}) {
     const values = queryString.parse(location.search);
     const redirect = values.redirect || '/';
 
-    console.log("redirect==========>", redirect);
-
     useEffect(() => {
       api
         .loginWithEmail(token)
