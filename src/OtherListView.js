@@ -3,6 +3,7 @@ import api from './services/api';
 import { connect } from "react-redux";
 import { getAccessToken, isLoggedIn } from "./redux/selectors";
 import Tree from './Tree';
+import Loading from './Loading';
 import './MyListView.css';
 import { setAccessToken } from './redux/actions';
 import classNames from './class-names';
@@ -96,7 +97,7 @@ function OtherListView({accessToken, match}) {
 
       {name && <h1>{name}'s List</h1>}
 
-      {state === "loading" && !items.length && <p>Loading...</p>}
+      {state === "loading" && !items.length && <Loading/>}
 
       {state === "success" && items && items.length === 0 && <>
         <Tree/>

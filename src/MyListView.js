@@ -3,6 +3,7 @@ import api from './services/api';
 import { connect } from "react-redux";
 import { getAccessToken, isLoggedIn } from "./redux/selectors";
 import Tree from './Tree';
+import Loading from './Loading';
 import './MyListView.css';
 import Button from './Button';
 import Input from './Input';
@@ -84,7 +85,7 @@ function MyListView({accessToken, isUserLoggedIn}) {
     <div>
       <h1>My Christmas List</h1>
        
-      {isLoading && !listId && <p>Loading....</p>}
+      {isLoading && !listId && <Loading/>}
 
       {!isLoading && items && items.length === 0 && <>
         <Tree/>

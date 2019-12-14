@@ -1,0 +1,144 @@
+#loading{
+    width:200px;
+    height: 40px;
+    margin: 40px auto;
+}
+
+@keyframes translateBaubleFirst {
+    0% {
+        transform: translateX(0px);
+        opacity: 0;
+    }
+  
+    30% {
+        transform: translateX(20px);
+        opacity: 1;
+    }
+  
+    70% {
+        transform: translateX(20px);
+        opacity: 1;   
+    }
+    100% {
+       opacity: 0;
+       transform: translateX(180px);
+    }
+}
+
+
+@keyframes translateBaubleSecond {
+    0% {
+        transform: translateX(0px);
+        opacity: 0;
+    }
+  
+    30% {
+        transform: translateX(60px);
+        opacity: 1;
+    }
+  
+    70% {
+        transform: translateX(60px);
+        opacity: 1;   
+    }
+    100% {
+       opacity: 0;
+       transform: translateX(180px);
+    }
+}
+
+@keyframes translateBaubleThird {
+    0% {
+        transform: translateX(0px);
+        opacity: 0;
+    }
+  
+    30% {
+        transform: translateX(100px);
+        opacity: 1;
+    }
+  
+    70% {
+        transform: translateX(100px);
+        opacity: 1;   
+    }
+    100% {
+       opacity: 0;
+       transform: translateX(180px);
+    }
+}
+
+@keyframes translateBaubleFourth {
+    0% {
+        transform: translateX(0px);
+        opacity: 0;
+    }
+  
+    30% {
+        transform: translateX(140px);
+        opacity: 1;
+    }
+  
+    70% {
+        transform: translateX(140px);
+        opacity: 1;   
+    }
+    100% {
+       opacity: 0;
+       transform: translateX(180px);
+    }
+}
+
+#loading .ball-wrapper{
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    position:absolute;  
+}
+
+#loading .ball-wrapper:nth-child(1){
+  animation-name: translateBaubleFirst;
+}
+
+#loading .ball-wrapper:nth-child(2){
+  animation-name: translateBaubleSecond;
+}
+
+#loading .ball-wrapper:nth-child(3){
+  animation-name: translateBaubleThird;
+}
+
+#loading .ball-wrapper:nth-child(4){
+  animation-name: translateBaubleFourth;
+}
+
+#loading .ball-wrapper .ring{
+  height:3px;
+  width: 2px;
+  border: .4px solid  #f99d24;
+  border-radius: 45%;
+  position: relative;
+  left: 13px;
+  top: 2px;
+}
+
+#loading .ball-wrapper .button {
+  height: 4.4px;
+  width: 6px;
+  background-color: #f99d24;
+  position: relative;
+  left: 12px;
+  top: 1.4px;
+  border-radius: .8px;
+}
+
+#loading .ball-wrapper .green-ball,
+#loading .ball-wrapper .red-ball {
+  background-color: #fd4848;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  position: relative;
+}
+#loading .ball-wrapper .green-ball{
+  background-color: #499f68;
+}
