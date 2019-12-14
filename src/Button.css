@@ -1,4 +1,4 @@
-button{
+.button--primary{
     padding: 15px 25px;
     border-radius: 25px;
     box-shadow: none;
@@ -11,24 +11,38 @@ button{
     /*min-width: 150px;*/
 }
 
-button.secondary {
+.button--secondary {
+    padding: 15px 25px;
+    border-radius: 25px;
+    box-shadow: none;
+    border: none;
+    color:white;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: 500;
     background: none;
-    /*color: #499f68;
-    position: absolute;
-    top: 0;
-    right: -150px;*/
 }
 
-button.small {
+.button--link {
+    background: none;
+    border: none;
+    box-shadow: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.button--small {
     padding: 0;
     font-size: small;
     min-width: auto;;
 }
 
-button.red {
+.button--red {
     color: #fd4848;
 }
 
-button.green {
+.button--green  {
     color: #499f68;
 }

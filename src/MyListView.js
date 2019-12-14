@@ -97,7 +97,7 @@ function MyListView({location}) {
               
               <span className="list-url">{listUrl}</span>
 
-            {document.queryCommandSupported('copy') && <button onClick={copyToClipboard} style={{"width":"150px", "textAlign":"left"}}className="secondary green small">
+            {document.queryCommandSupported('copy') && <Button onClick={copyToClipboard} style={{"width":"150px", "textAlign":"left"}} variants={["secondary", "green", "small"]}>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" >
                 <rect width="14" height="14" x="3" y="3" rx="2" style={{"fill":"#499f68"}}></rect>
                   <rect width="14" height="14" x="7" y="7"  rx="2" style={{"fill":"hsl(141.6, 52.1%, 66.5%)"}}></rect>
@@ -114,7 +114,7 @@ function MyListView({location}) {
                 ref={ref}
                 defaultValue={listUrl}
               />
-            </button>
+            </Button>
             }
           </div>
         </div>
@@ -127,7 +127,7 @@ function MyListView({location}) {
               return (<li key={item.id} id={item.id}>
                 <span>
                   <span className="item-description">{item.description}</span> 
-                  <button className="secondary small red"  style={{"marginLeft":"20px"}} onClick={(ev)=>onClickRemove(ev, item.id)}>Remove</button>
+                  <Button variants={["secondary", "small", "red"]}  style={{"marginLeft":"20px"}} onClick={(ev)=>onClickRemove(ev, item.id)}>Remove</Button>
                 </span>
               </li>);
             })}

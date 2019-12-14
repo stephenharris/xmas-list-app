@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import { setAccessToken } from "./redux/actions";
 import api from './services/api';
+import Button from './Button';
 
 class LoginButton extends React.Component{
 
@@ -55,7 +56,7 @@ class LoginButton extends React.Component{
 
     render() {
       return (
-        <button onClick={(event) => event.preventDefault()} id="customBtn">Sign in with Google</button>
+        <Button onClick={(event) => event.preventDefault()} id="customBtn">Sign in with Google</Button>
       );
     }
 };
