@@ -1,3 +1,15 @@
+
+.signUpContainer #wavingSanta {
+	margin-right:50px;
+}
+
+@media only screen and (max-width: 600px) {
+	.signUpContainer #wavingSanta {
+		display: none;
+	}
+}
+
+
 .signUpContainer {
 	display: flex;
 	align-items: center;
@@ -7,14 +19,29 @@
 
 .signUpContainer ol {
 	max-width: 400px;
+	padding: 5px;
+	list-style: none;
+	counter-reset: custom-counter;
 }
 
 .signUpContainer ol li {
 	margin: 40px 0;
+	counter-increment: custom-counter;
 }
 
-
+.signUpContainer ol li::before {
+	content: counter(custom-counter);
+	background:#499f68;
+	width:1.5em;
+	height:1.5em;
+	border-radius: 100%;
+	color:white;
+	text-align: center;
+	display: inline-block;
+}
 
 .signUpContainer ol strong{
-	display:block;
+	display: inline-block;
+	color:#499f68;
+	margin: 0 10px;
 }
