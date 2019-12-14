@@ -1,0 +1,9 @@
+.loginWithEmailForm__successMessage {
+  font-weight: 600;
+  color:#499f68;
+}
+
+.loginWithEmailForm__errorMessage {
+  font-weight: 600;
+  color:#fd4848;
+}

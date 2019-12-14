@@ -5,7 +5,7 @@
 	padding-top:30px;
 }
 
-.signInContainer form {
+.signInContainer__form {
 	max-width: 400px;
 }
 
@@ -13,6 +13,6 @@
 	text-align:center;
 } 
 
-.signInContainer .subHeader{
+.signInContainer__subHeader{
 	font-size: 22px;
 }

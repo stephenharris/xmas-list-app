@@ -1,23 +1,12 @@
 import React from 'react';
-import { connect } from "react-redux";
-import { getAccessToken, isLoggedIn } from "./redux/selectors";
 import GoogleLoginButton from './GoogleLoginButton';
-import Button from './Button';
-import Input from './Input';
+import LoginWithEmailForm from './LoginWithEmailForm';
 import Santa from './Santa';
 
 import './SignUp.css';
 
-const mapStateToProps = state => {
-  const accessToken = getAccessToken(state);
-  const isUserLoggedIn = isLoggedIn(state);
-  return { accessToken, isUserLoggedIn };
-
-};
-
-function SignUp({isUserLoggedIn, accessToken}) {
-    
-
+function SignUp() {
+  
   return (
     <div>
       <h1>Sign up</h1>
@@ -28,13 +17,8 @@ function SignUp({isUserLoggedIn, accessToken}) {
           <li>
             <strong>Log-in</strong>
             with Google or via email. No need to set a password
-            <form>
-              <div>
-                <Input label="Your email" type="email" />    
-                <Button type="submit">Sign-in</Button>
-              </div>
+              <LoginWithEmailForm/>
               <p>or <GoogleLoginButton/></p>
-            </form>
           </li>
           <li>
             <strong>Create a list</strong>
@@ -50,5 +34,4 @@ function SignUp({isUserLoggedIn, accessToken}) {
   );
 }
 
-export default connect(mapStateToProps)(SignUp);
-
+export default SignUp;
