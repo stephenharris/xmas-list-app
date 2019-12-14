@@ -90,7 +90,8 @@
 }
 
 #loading .ball-wrapper{
-    animation-duration: 3s;
+    animation-duration: 2.8s;
+    animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     position:absolute;  
 }
