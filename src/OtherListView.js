@@ -50,7 +50,7 @@ function OtherListView({accessToken, match}) {
         }
         console.log(error.response);
       });
-  }, [listLastChanged]);
+  }, [listLastChanged, listId]);
 
   const markAsBought = (itemUuid) => {
     api

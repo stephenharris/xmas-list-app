@@ -27,7 +27,7 @@ function LoginWithEmail({match, location, setAccessToken}) {
           setStatus('failed');
           console.log(error);
         });
-    }, []);
+    }, [token, setAccessToken]);
       
   return (
     <div>
