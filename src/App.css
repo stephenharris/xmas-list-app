@@ -12,9 +12,14 @@ nav ul {
   display: flex;
 }
 nav ul li {
-  margin: 0px 30px;
+  margin: 0px 20px;
   font-family: 'Mountains of Christmas', cursive;
   font-size: 24px;
+}
+@media (min-width: 500px) {
+  nav ul li {
+    margin: 0px 30px;
+  }
 }
 nav ul li a {
   color:#fd4848!important;
