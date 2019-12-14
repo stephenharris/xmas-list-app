@@ -25,6 +25,9 @@ label input ~ span {
 }
 
 label input:focus  {
+    box-shadow: none;
+    border:none;
+    outline:none;
     border-bottom: 1px solid #499f68;
 }
 label input.hasValue ~ span,
