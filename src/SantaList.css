@@ -36,7 +36,7 @@
 }
   
 #SantaList .hand.left::before{background:#FFF1C8}
-#SantaList.santa{position:relative;width:334px;height:360px;margin-right:50px;}
+#SantaList.santa{position:relative;width:334px;height:360px;}
 
 /*HAT*/
 #SantaList .hat{width:101px;height:101px;border-radius:0 0 100px 0;background:#E64604;position:absolute;top:16px;right:39px}
