@@ -26,14 +26,16 @@ class LoginButton extends React.Component{
 
   renderGoogleLoginButton() {
     console.log('renderGoogleLoginButton');
+    if(window.gapi) {
       window.gapi.load('auth2', () =>{
-          // Retrieve the singleton for the GoogleAuth library and set up the client.
-          this.auth2 = window.gapi.auth2.init({
-            client_id: '50551686024-dfc0mvniq1fb3eslnp0n65m5o5ofe69s.apps.googleusercontent.com',
-            cookiepolicy: 'single_host_origin',
-          });
-          this.attachSignin(document.getElementById('customBtn'));
+        // Retrieve the singleton for the GoogleAuth library and set up the client.
+        this.auth2 = window.gapi.auth2.init({
+          client_id: '50551686024-dfc0mvniq1fb3eslnp0n65m5o5ofe69s.apps.googleusercontent.com',
+          cookiepolicy: 'single_host_origin',
+        });
+        this.attachSignin(document.getElementById('customBtn'));
       });
+    }
     
   }
     
