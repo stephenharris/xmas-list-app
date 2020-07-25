@@ -1,0 +1,13 @@
+.favouriteButton {
+    border: none;
+    background:none;
+    cursor:pointer;
+    margin-left:1em;
+}
+.favouriteButton {
+    stroke:#FFC61C;
+    fill: none;
+}
+.favouriteButton.favouriteButton--higlighted {
+    fill:#FFC61C;
+}
