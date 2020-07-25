@@ -9,6 +9,7 @@ import { setAccessToken } from './redux/actions';
 import classNames from './class-names';
 import NotFound from './NotFound';
 import Forbidden from './Forbidden';
+import FavouriteButton from './FavouriteButton';
 
 
 const mapStateToProps = state => {
@@ -25,6 +26,7 @@ function OtherListView({accessToken, match}) {
   const listId = match.params.listId;
   const [state, setState] = useState("initial");
   const [listLastChanged, setListLastChanged] = useState((new Date()).getTime());
+  const [isFavourite, setIsFavourite] = useState(null);
   
   useEffect(() => {
     setState("loading");
@@ -51,6 +53,18 @@ function OtherListView({accessToken, match}) {
         console.log(error.response);
       });
   }, [listLastChanged, listId]);
+
+  useEffect(() => {
+    api
+      .getMyFavourites()
+      .then((response) => {
+        let isFavourite = response.data.lists && response.data.lists.some((list) => list.uuid == listId);
+        setIsFavourite(isFavourite);
+      })
+      .catch(function (error) {
+        console.log(error.response);
+      });
+  }, [listId]);
 
   const markAsBought = (itemUuid) => {
     api
@@ -84,16 +98,27 @@ function OtherListView({accessToken, match}) {
     }
   } 
 
+  const onClickToggleFavourite = (event, item) => {
+    event.preventDefault();
+    if(isFavourite) {
+      setIsFavourite(false);
+      api.removeListFromFavourites(listId).then();
+    } else {
+      setIsFavourite(true);
+      api.addListToFavourites(listId).then();
+    }
+  } 
+
   return (
     <div>
+
+      {state === "loading" && !items.length && <Loading/>}
 
       {state === "notfound" && <NotFound/>}
 
       {state === "forbidden" && <Forbidden/>}
 
-      {name && <h1>{name}'s List</h1>}
-
-      {state === "loading" && !items.length && <Loading/>}
+      {state === "success" && <h1>{name}{isFavourite !== null && <FavouriteButton onClick={onClickToggleFavourite} isFavourite={isFavourite}/>}</h1>}
 
       {state === "success" && items && items.length === 0 && <>
         <Tree/>

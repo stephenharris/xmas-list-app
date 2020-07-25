@@ -19,6 +19,10 @@ h1 {
   text-align: center;
   color:#fd4848;
   font-weight: bold;
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 

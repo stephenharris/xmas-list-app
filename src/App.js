@@ -3,6 +3,7 @@ import './App.css';
 import SignUp from './SignUp';
 import OtherListView from './OtherListView';
 import MyListView from './MyListView';
+import FavouritesView from './FavouritesView';
 import NotFound from './NotFound';
 import LoginToViewList from './LoginToViewList';
 import Elf from './Elf';
@@ -48,6 +49,7 @@ function App({isUserLoggedIn, loggedInUser, setAccessToken}) {
       <nav>
         <ul>
           <li><Link to="/">My list</Link></li>
+          <li><Link to="/favourites">My favourites</Link></li>
           <li><Button variants={["link"]} onClick={logOut}>Log-out</Button></li>
         </ul>
       </nav>
@@ -59,6 +61,10 @@ function App({isUserLoggedIn, loggedInUser, setAccessToken}) {
       <Route exact path="/">
         {isUserLoggedIn ?  <MyListView /> :  <SignUp />}
       </Route>
+      <Route exact path="/favourites">
+        {isUserLoggedIn ?  <FavouritesView /> :  <SignUp />}
+      </Route>
+
       <Route path="/login/:token" component={LoginWithEmail}/>
       <Route component={NotFound} />
     </Switch>
