@@ -43,6 +43,33 @@ class Api {
         );
     }
 
+    getMyFavourites() {
+        const accessToken = getAccessToken(store.getState());
+        return axios.get(
+            process.env.REACT_APP_API_URL + '/favourites/',
+            { headers: {"Authorization" : `Bearer ${accessToken}`} }
+        );
+    }
+
+    addListToFavourites(listUuid) {
+        const accessToken = getAccessToken(store.getState());
+        return axios.post(
+            process.env.REACT_APP_API_URL + '/favourites/',
+            {
+              "list": listUuid 
+            },
+            { headers: {"Authorization" : `Bearer ${accessToken}`} }
+        );
+    }
+
+    removeListFromFavourites(listUuid) {
+        const accessToken = getAccessToken(store.getState());
+        return axios.delete(
+            process.env.REACT_APP_API_URL + `/favourites/${listUuid}`,
+            { headers: {"Authorization" : `Bearer ${accessToken}`} }
+        );
+    }
+
     addToMyList(description) {
         const accessToken = getAccessToken(store.getState());
         return axios.post(
