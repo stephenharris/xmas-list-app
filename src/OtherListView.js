@@ -58,7 +58,7 @@ function OtherListView({accessToken, match}) {
     api
       .getMyFavourites()
       .then((response) => {
-        let isFavourite = response.data.lists && response.data.lists.some((list) => list.uuid == listId);
+        let isFavourite = response.data.lists && response.data.lists.some((list) => list.uuid === listId);
         setIsFavourite(isFavourite);
       })
       .catch(function (error) {

@@ -10,7 +10,7 @@ import {
     Link,
   } from "react-router-dom";
   
-function FavouritesView({}) {
+function FavouritesView() {
         
   const [favourites, setFavourites] = useState([]);
   const [state, setState] = useState("initial");
