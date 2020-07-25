@@ -56,8 +56,6 @@ function OtherListView({accessToken, match}) {
     api
       .markAsBought(listId, itemUuid)
       .then(function (response) {
-        // handle success
-        console.log(response.data);
         setListLastChanged((new Date()).getTime());
       })
       .catch(function (error) {
@@ -69,8 +67,6 @@ function OtherListView({accessToken, match}) {
     api
       .unmarkAsBought(listId, itemUuid)
       .then(function (response) {
-        // handle success
-        console.log(response.data);
         setListLastChanged((new Date()).getTime());
       })
       .catch(function (error) {

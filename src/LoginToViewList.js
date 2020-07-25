@@ -17,9 +17,6 @@ const mapStateToProps = state => {
 
 function LoginToViewList({isUserLoggedIn, accessToken, location}) {
     
-  //
-  console.log('location ===> ', location);
-
   return (
     <div>
       <h1>Looks like you're on the naughty list</h1>
