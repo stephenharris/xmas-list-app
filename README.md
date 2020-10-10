@@ -1,9 +1,7 @@
 # TODO
 
-2. Investigate sign-in-with google bug
-3. Improve other list view (responsive, checkbox)
-4. Improve login via email (e.g. lock buttons )
-5. UI to change to rename lists
+1. Investigate sign-in-with google bug
+2. UI to change to rename lists
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
