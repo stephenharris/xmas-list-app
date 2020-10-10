@@ -9,6 +9,7 @@ import Input from './Input';
 
 function MyListView({location}) {
         
+  const [name, setName] = useState("");
   const [items, setItems] = useState(false);
   const [listId, setListId] = useState(false);
   const [isLoading, setLoading] = useState(false);
@@ -22,6 +23,7 @@ function MyListView({location}) {
       .then(function (response) {
         setItems(response.data.items);
         setListId(response.data.listId);
+        setName(response.data.name);
         setLoading(false);
       })
       .catch(function (error) {
@@ -76,7 +78,7 @@ function MyListView({location}) {
   const ref = React.createRef();
   return (
     <div>
-      <h1>My Christmas List</h1>
+      <h1>{name}</h1>
        
       {isLoading && !listId && <Loading/>}
 
