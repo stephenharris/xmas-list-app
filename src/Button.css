@@ -34,9 +34,9 @@
 }
 
 .button--small {
-    padding: 0;
+    padding: .5em;
     font-size: small;
-    min-width: auto;;
+    min-width: auto;
 }
 
 .button--primary.button--disabled {
