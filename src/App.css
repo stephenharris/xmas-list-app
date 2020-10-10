@@ -17,15 +17,24 @@ h1 {
 nav ul {
   list-style: none;
   display: flex;
+  padding-left: 0;
 }
 nav ul li {
-  margin: 0px 20px;
+  margin: 0 1em;
   font-family: 'Mountains of Christmas', cursive;
   font-size: 24px;
+  font-size: 1.5rem
 }
 @media (min-width: 500px) {
+  nav {
+    width: 100%;
+  }
   nav ul li {
-    margin: 0px 30px;
+    margin: auto;
+    font-size: 1rem;
+  }
+  .econtainer {
+    display:none;
   }
 }
 
