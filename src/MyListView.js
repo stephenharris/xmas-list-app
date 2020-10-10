@@ -47,7 +47,7 @@ function MyListView({location}) {
   const onSaveName = (event) => {
     event.preventDefault();
     api
-    .updateMyList(description)
+    .updateMyList(event.target.description.value)
     .then(function (response) {
       console.log(response);
     })
