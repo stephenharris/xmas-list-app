@@ -44,6 +44,18 @@ function MyListView({location}) {
       }); 
   }
 
+  const onSaveName = (event) => {
+    event.preventDefault();
+    api
+    .updateMyList(description)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    }); 
+  }
+
   const deleteItem = (itemId) => {
     api
       .removeFromMyList(itemId)
@@ -84,13 +96,14 @@ function MyListView({location}) {
         <Button variants={["primary"]} onClick={() => setEditing(true)} type="submit">Edit list name</Button>
       </>}
 
-      {editing && <form className="add-item">
+      {editing && <form className="add-item" onSubmit={onSaveName}>>
         <Input style={{"margin":"auto"}} name="name" label="List name" onChange={(event) => setName(event.value)} value={name}/>
-        <Button variants={["secondary"]} onClick={() => setEditing(false)}>Cancel</Button>
-        <Button variants={["primary"]} onClick={() => setEditing(false)} type="submit">Save</Button>
+        <div>
+          <Button variants={["secondary"]} onClick={(event) => event.preventDefault() && setEditing(false)}>Cancel</Button>
+          <Button variants={["primary"]} type="submit">Save</Button>
+        </div>
       </form>}
 
-       
       {isLoading && !listId && <Loading/>}
 
       {!isLoading && items && items.length === 0 && <>

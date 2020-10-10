@@ -43,6 +43,17 @@ class Api {
         );
     }
 
+    updateMyList(name) {
+        const accessToken = getAccessToken(store.getState());
+        return axios.put(
+            process.env.REACT_APP_API_URL + '/list-item/mine/',
+            {
+                "name": name 
+            },
+            { headers: {"Authorization" : `Bearer ${accessToken}`} }
+        );
+    }
+
     getMyFavourites() {
         const accessToken = getAccessToken(store.getState());
         return axios.get(
