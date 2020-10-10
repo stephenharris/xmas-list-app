@@ -47,7 +47,7 @@ function MyListView({location}) {
   const onSaveName = (event) => {
     event.preventDefault();
     api
-    .updateMyList(event.target.description.value)
+    .updateMyList(event.target.name.value)
     .then(function (response) {
       console.log(response);
     })
@@ -96,7 +96,7 @@ function MyListView({location}) {
         <Button variants={["primary"]} onClick={() => setEditing(true)} type="submit">Edit list name</Button>
       </>}
 
-      {editing && <form className="add-item" onSubmit={onSaveName}>>
+      {editing && <form className="add-item" onSubmit={onSaveName}>
         <Input style={{"margin":"auto"}} name="name" label="List name" onChange={(event) => setName(event.value)} value={name}/>
         <div>
           <Button variants={["secondary"]} onClick={(event) => event.preventDefault() && setEditing(false)}>Cancel</Button>
