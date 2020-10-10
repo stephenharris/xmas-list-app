@@ -9,6 +9,7 @@ import Input from './Input';
 
 function MyListView({location}) {
         
+  const [editing, setEditing] = useState(false);
   const [name, setName] = useState("");
   const [items, setItems] = useState(false);
   const [listId, setListId] = useState(false);
@@ -78,7 +79,15 @@ function MyListView({location}) {
   const ref = React.createRef();
   return (
     <div>
-      <h1>{name}</h1>
+      {!editing && <h1>{name}</h1>}
+      <Button variants={["primary"]} onClick={() => setEditing(true)} type="submit">Edit list name</Button>
+
+      {editing && <form className="add-item">
+        <Input style={{"margin":"auto"}} name="name" label="List name" value={name}/>
+        <Button variants={["secondary"]} onClick={() => setEditing(false)}>Cancel</Button>
+        <Button variants={["primary"]} onClick={() => setEditing(false)} type="submit">Save</Button>
+      </form>}
+
        
       {isLoading && !listId && <Loading/>}
 
