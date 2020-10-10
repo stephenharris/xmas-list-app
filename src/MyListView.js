@@ -99,8 +99,10 @@ function MyListView({location}) {
   return (
     <div>
       {!editing && <>
-        <h1>{name}</h1>
-        <Button variants={["primary", "small"]} onClick={() => setEditing(true)} type="submit">Edit list name</Button>
+        <h1>
+          {name}
+          <Button variants={["primary", "small"]} onClick={() => setEditing(true)} type="submit">Edit list name</Button>
+        </h1>
       </>}
 
       {editing && <form className="add-item" onSubmit={onSaveName}>
