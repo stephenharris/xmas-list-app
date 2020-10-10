@@ -19,4 +19,21 @@ export const getLoggedInUser = store => {
 
 
 
-export const isLoggedIn = store => getAccessToken(store) ? true: false
+export const isLoggedIn = store => {
+    let accessToken = getAccessToken(store);
+    
+    if (!accessToken) {
+        console.log("no access token");
+        return false;
+    }
+
+    var decodedToken=jwt.decode(token, {complete: true});
+    var dateNow = new Date();
+
+    console.log(decodedToken);
+    if(decodedToken.exp < dateNow.getTime()){
+        return false;
+    }
+
+    return true;
+}
