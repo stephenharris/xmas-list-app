@@ -79,10 +79,10 @@ function MyListView({location}) {
   const ref = React.createRef();
   return (
     <div>
-      {!editing && (
+      {!editing && <>
         <h1>{name}</h1>
         <Button variants={["primary"]} onClick={() => setEditing(true)} type="submit">Edit list name</Button>
-      )}
+      </>}
 
       {editing && <form className="add-item">
         <Input style={{"margin":"auto"}} name="name" label="List name" onChange={(event) => setName(event.value)} value={name}/>
