@@ -1,3 +1,4 @@
+import jwt from 'jsonwebtoken'
 
 export const getAccessToken = store => {
     return store.authenticatedUser.access_token;
@@ -27,7 +28,7 @@ export const isLoggedIn = store => {
         return false;
     }
 
-    var decodedToken=jwt.decode(token, {complete: true});
+    var decodedToken = jwt.decode(accessToken, {complete: true});
     var dateNow = new Date();
 
     console.log(decodedToken);
