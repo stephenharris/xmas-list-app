@@ -107,7 +107,7 @@ function MyListView({location}) {
 
       {editing && <form className="add-item" onSubmit={onSaveName}>
         <Input style={{"margin":"auto"}} name="name" label="List name" onChange={(event) => setName(event.value)} value={name}/>
-        <div>
+        <div className="editTitleButtons">
           <Button variants={["secondary", "small"]} onClick={onCancelEdit}>Cancel</Button>
           <Button variants={["primary", "small"]} type="submit">Save</Button>
         </div>

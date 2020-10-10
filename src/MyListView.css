@@ -1,3 +1,10 @@
+
+.editTitleButtons {
+    width: 240px;
+    display: flex;
+    justify-content: space-between;
+    margin: .5em auto;
+}
 .share-list {
     max-width: 750px;
     margin:auto;

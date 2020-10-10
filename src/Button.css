@@ -34,7 +34,7 @@
 }
 
 .button--small {
-    padding: .5em;
+    padding: .5em 1em;
     font-size: small;
     min-width: auto;
 }
