@@ -78,7 +78,7 @@ button svg {
     height: auto;width: 32px;text-align: center;vertical-align: middle
 }
 
-label .mark {
+label.mark {
  font-family:'Open Sans';
  margin: 0 0 1rem 0;
  cursor:pointer;
