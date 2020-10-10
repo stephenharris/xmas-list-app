@@ -46,6 +46,7 @@
 .list {
 	display:flex;
     flex-direction:column;
+    padding: .5rem;
 }
 
 .list ol {
@@ -70,6 +71,7 @@ ol li > span {
     display: flex;
     justify-content: space-between;
     align-items: first baseline;
+    flex-direction: column;
 }
 
 button svg {
@@ -77,5 +79,7 @@ button svg {
 }
 
 label .mark {
- font-family:'Open Sans'   
+ font-family:'Open Sans';
+ margin: 0 0 1rem 0;
+ cursor:pointer;
 }
