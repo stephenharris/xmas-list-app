@@ -1,9 +1,9 @@
 # TODO
 
-1. Mobile friendly
-3. Providing a name for a list/user
-4. Log-in via email
-5. 404 on list
+2. Investigate sign-in-with google bug
+3. Improve other list view (responsive, checkbox)
+4. Improve login via email (e.g. lock buttons )
+5. UI to change to rename lists
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
