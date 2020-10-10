@@ -29,7 +29,7 @@ function LoginWithEmailForm({location}) {
         {state !== 'sent' && <>
             <Input label="Your email" type="email" name="email"/>    
             <Button type="submit" 
-            disabled={state==="sending"}>{state==="sending" ? "Sending email..." : "Sign-in"}</Button>
+            disabled={state==="sending"}>{state==="sending" ? "Sending..." : "Sign-in"}</Button>
             {state === "failed" && <p className="loginWithEmailForm__errorMessage">Oops! Something went wrong. Please try again</p>}
         </>}
         {state === 'sent' && <p className="loginWithEmailForm__successMessage">Email sent! Click the link in the email to login</p>}

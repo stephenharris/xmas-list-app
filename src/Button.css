@@ -42,4 +42,5 @@
 .button--primary.button--disabled {
     background: #6b9e7d;
     color: #d2f7df;
+    cursor: default;
 }
