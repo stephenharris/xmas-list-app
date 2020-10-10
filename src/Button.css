@@ -39,20 +39,7 @@
     min-width: auto;;
 }
 
-.button--red {
-    color: #fd4848;
-}
-
-.button--green  {
-    color: #499f68;
-}
-
-.button--green .button--disabled {
+.button--primary.button--disabled {
     background: #6b9e7d;
     color: #d2f7df;
-}
-
-.button--red .button--disabled {
-    background: #dc6565;
-    color: #f9e1e1;
 }

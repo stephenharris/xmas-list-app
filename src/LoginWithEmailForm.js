@@ -3,7 +3,6 @@ import api from './services/api';
 import Button from './Button';
 import Input from './Input';
 import {withRouter} from 'react-router-dom';
-import classNames from 'classnames';
 import './LoginWithEmailForm.css';
 
 function LoginWithEmailForm({location}) {
@@ -30,10 +29,6 @@ function LoginWithEmailForm({location}) {
         {state !== 'sent' && <>
             <Input label="Your email" type="email" name="email"/>    
             <Button type="submit" 
-            className={classNames({
-              "button--green": true,
-              "button--disabled": state==="sending"
-            })}
             disabled={state==="sending"}>{state==="sending" ? "Sending email..." : "Sign-in"}</Button>
             {state === "failed" && <p className="loginWithEmailForm__errorMessage">Oops! Something went wrong. Please try again</p>}
         </>}
