@@ -9,7 +9,7 @@ function Button(props) {
 
   return (
     <button {...props} 
-    className={classNames(variants.reduce(classes, (variant) => {
+    className={classNames(variants.reduce((classes, variant) => {
       classes["button--" + variant] = true;
       return classes;
     }, {
