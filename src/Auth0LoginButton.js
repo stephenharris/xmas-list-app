@@ -5,9 +5,7 @@ import { connect } from "react-redux";
 
 const Auth0LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
-  const alpha = localStorage.getItem('alpha');
-  
-  return alpha && alpha === "true" ? <Button  onClick={() => loginWithRedirect()}>Log In</Button> : null;
+  return <Button  onClick={() => loginWithRedirect()}>Log In / Sign Up</Button>
 };
 
 export default connect()(Auth0LoginButton);

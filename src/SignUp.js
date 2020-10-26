@@ -1,7 +1,5 @@
 import React from 'react';
-import GoogleLoginButton from './GoogleLoginButton';
 import Auth0LoginButton from './Auth0LoginButton';
-import LoginWithEmailForm from './LoginWithEmailForm';
 import Santa from './Santa';
 import { useAuth0 } from "@auth0/auth0-react";
 import Loading from './Loading';
@@ -25,9 +23,7 @@ function SignUp() {
         {!isLoading && !isAuthenticated && <ol>
           <li>
             <strong>Log-in</strong>
-            <div>with Google or via email. No need to set a password
-              <LoginWithEmailForm/>
-              <p>or <GoogleLoginButton/></p>
+            <div>with Google or create an account.
               <p><Auth0LoginButton/></p>
             </div>
           </li>

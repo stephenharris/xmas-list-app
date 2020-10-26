@@ -35,7 +35,6 @@ function App({isUserLoggedIn, loggedInUser, setAccessToken}) {
 
   const [redirectHome, setRedirectHome] = useState(false);
   const { user, logout, isAuthenticated, getAccessTokenSilently } = useAuth0();
-  const alpha = localStorage.getItem('alpha');
 
   const onClickLogOut = (event) => {
     event.preventDefault();
@@ -45,7 +44,6 @@ function App({isUserLoggedIn, loggedInUser, setAccessToken}) {
     setRedirectHome(true);
   }
 
-  console.log(alpha)
   console.log(user)
 
   useEffect(() => {
@@ -55,10 +53,8 @@ function App({isUserLoggedIn, loggedInUser, setAccessToken}) {
           audience: `xmas-api`,
           scope: "*",
         });
-        const alpha = localStorage.getItem('alpha');
-  
         console.log("accessToken via auth0");
-        if (accessToken && alpha === 'true') {
+        if (accessToken) {
           console.log(accessToken);
           setAccessToken(accessToken);
         }
@@ -74,7 +70,7 @@ function App({isUserLoggedIn, loggedInUser, setAccessToken}) {
     <Router>
       {redirectHome && <Redirect to="/"/>}
 
-     {(isUserLoggedIn || (isAuthenticated && alpha === 'true') ) && <div className="appbar">
+     {(isUserLoggedIn || isAuthenticated ) && <div className="appbar">
       <Elf/>
       <nav>
         <ul>
