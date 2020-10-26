@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import { getAccessToken, isLoggedIn } from "./redux/selectors";
 import GoogleLoginButton from './GoogleLoginButton';
+import Auth0LoginButton from './Auth0LoginButton';
 import SantaList from './SantaList';
 import LoginWithEmailForm from './LoginWithEmailForm';
 
@@ -28,6 +29,7 @@ function LoginToViewList({isUserLoggedIn, accessToken, location}) {
             <LoginWithEmailForm/>
             <p>or</p> 
             <p><GoogleLoginButton/></p>
+            <p><Auth0LoginButton/></p>
           </div>
       </div>
     </div>

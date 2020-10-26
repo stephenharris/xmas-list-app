@@ -1,5 +1,6 @@
 import React from 'react';
 import GoogleLoginButton from './GoogleLoginButton';
+import Auth0LoginButton from './Auth0LoginButton';
 import LoginWithEmailForm from './LoginWithEmailForm';
 import Santa from './Santa';
 
@@ -19,6 +20,7 @@ function SignUp() {
             <div>with Google or via email. No need to set a password
               <LoginWithEmailForm/>
               <p>or <GoogleLoginButton/></p>
+              <p><Auth0LoginButton/></p>
             </div>
           </li>
           <li>
