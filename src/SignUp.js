@@ -11,18 +11,18 @@ import './SignUp.css';
 function SignUp() {
   
   
-  const {isLoading } = useAuth0();
+  const {isLoading , isAuthenticated}= useAuth0();
 
   return (
     <div>
-      <h1> {isLoading ? "Signing in..." : "Sign up"}</h1>
+      <h1> {isLoading || isAuthenticated? "Signing in..." : "Sign up"}</h1>
 
-      {isLoading && <div><Loading/></div>}
+      {(isLoading || isAuthenticated) && <div><Loading/></div>}
 
       <div className="signUpContainer">
         <Santa/>
 
-        {!isLoading && <ol>
+        {!isLoading && !isAuthenticated && <ol>
           <li>
             <strong>Log-in</strong>
             <div>with Google or via email. No need to set a password
