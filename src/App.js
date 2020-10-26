@@ -34,7 +34,8 @@ const mapStateToProps = state => {
 function App({isUserLoggedIn, loggedInUser, setAccessToken}) {
 
   const [redirectHome, setRedirectHome] = useState(false);
-  const { logout } = useAuth0();
+  const { logout, isAuthenticated } = useAuth0();
+  const alpha = localStorage.getItem('alpha');
 
   const onClickLogOut = (event) => {
     event.preventDefault();
@@ -42,14 +43,13 @@ function App({isUserLoggedIn, loggedInUser, setAccessToken}) {
 
     logout({ returnTo: "https://xmas.c7e.uk/" })
     setRedirectHome(true);
-
   }
 
   return (
     <Router>
       {redirectHome && <Redirect to="/"/>}
 
-     {isUserLoggedIn && <div className="appbar">
+     {(isUserLoggedIn || (isAuthenticated && alpha === 'true') ) && <div className="appbar">
       <Elf/>
       <nav>
         <ul>

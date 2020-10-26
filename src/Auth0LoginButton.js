@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
+import { setAccessToken } from "./redux/actions";
 import Button from './Button';
+import { connect } from "react-redux";
 
-const Auth0LoginButton = ({match}) => {
+const Auth0LoginButton = ({setAccessToken}) => {
   const { user, loginWithRedirect, getAccessTokenSilently } = useAuth0();
-  //isAuthenticated
 
   const alpha = localStorage.getItem('alpha');
   console.log(alpha)
@@ -17,18 +18,22 @@ const Auth0LoginButton = ({match}) => {
           audience: `xmas-api`,
           scope: "*",
         });
+        const alpha = localStorage.getItem('alpha');
   
-        console.log("accessToken");
-        console.log(accessToken);
+        console.log("accessToken via auth0");
+        if (accessToken && alpha === 'true') {
+          console.log(accessToken);
+          setAccessToken(accessToken);
+        }
       } catch (e) {
         console.log(e.message);
       }
     };
   
     getUserMetadata();
-  }, [getAccessTokenSilently]);
+  }, [getAccessTokenSilently, setAccessToken]);
 
   return alpha && alpha === "true" ? <Button  onClick={() => loginWithRedirect()}>Log In</Button> : null;
 };
 
-export default Auth0LoginButton;
+export default connect(null, {setAccessToken})(Auth0LoginButton);
