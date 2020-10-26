@@ -9,6 +9,7 @@ import LoginToViewList from './LoginToViewList';
 import Elf from './Elf';
 import LoginWithEmail from './LoginWithEmail';
 import Button from './Button';
+import { useAuth0 } from "@auth0/auth0-react";
 
 import {
   BrowserRouter as Router,
@@ -33,11 +34,14 @@ const mapStateToProps = state => {
 function App({isUserLoggedIn, loggedInUser, setAccessToken}) {
 
   const [redirectHome, setRedirectHome] = useState(false);
+  const { logout } = useAuth0();
 
-  const logOut = (event) => {
+  const onClickLogOut = (event) => {
     event.preventDefault();
     setAccessToken(null);
     setRedirectHome(true);
+
+    logout({ returnTo: "/" })
   }
 
   return (
@@ -50,7 +54,7 @@ function App({isUserLoggedIn, loggedInUser, setAccessToken}) {
         <ul>
           <li><Link to="/">My list</Link></li>
           <li><Link to="/favourites">My favourites</Link></li>
-          <li><Button variants={["link"]} onClick={logOut}>Log-out</Button></li>
+          <li><Button variants={["link"]} onClick={onClickLogOut}>Log-out</Button></li>
         </ul>
       </nav>
     </div>}
