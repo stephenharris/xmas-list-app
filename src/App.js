@@ -39,9 +39,10 @@ function App({isUserLoggedIn, loggedInUser, setAccessToken}) {
   const onClickLogOut = (event) => {
     event.preventDefault();
     setAccessToken(null);
+
+    logout({ returnTo: "https://xmas.c7e.uk/" })
     setRedirectHome(true);
 
-    logout({ returnTo: "/" })
   }
 
   return (
