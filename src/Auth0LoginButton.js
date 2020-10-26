@@ -9,6 +9,23 @@ const Auth0LoginButton = ({match}) => {
   console.log(alpha)
   console.log(user)
 
+  useEffect(() => {
+    const getUserMetadata = async () => {
+      try {
+        const accessToken = await getAccessTokenSilently({
+          audience: `xmas-api`,
+          scope: "*",
+        });
+  
+        console.log(accessToken);
+      } catch (e) {
+        console.log(e.message);
+      }
+    };
+  
+    getUserMetadata();
+  }, []);
+
   return alpha && alpha === "true" ? <Button  onClick={() => loginWithRedirect()}>Log In</Button> : null;
 };
 
