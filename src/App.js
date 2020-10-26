@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import SignUp from './SignUp';
 import OtherListView from './OtherListView';
@@ -34,7 +34,7 @@ const mapStateToProps = state => {
 function App({isUserLoggedIn, loggedInUser, setAccessToken}) {
 
   const [redirectHome, setRedirectHome] = useState(false);
-  const { logout, isAuthenticated } = useAuth0();
+  const { user, logout, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const alpha = localStorage.getItem('alpha');
 
   const onClickLogOut = (event) => {
@@ -44,6 +44,31 @@ function App({isUserLoggedIn, loggedInUser, setAccessToken}) {
     logout({ returnTo: "https://xmas.c7e.uk/" })
     setRedirectHome(true);
   }
+
+  console.log(alpha)
+  console.log(user)
+
+  useEffect(() => {
+    const getUserMetadata = async () => {
+      try {
+        const accessToken = await getAccessTokenSilently({
+          audience: `xmas-api`,
+          scope: "*",
+        });
+        const alpha = localStorage.getItem('alpha');
+  
+        console.log("accessToken via auth0");
+        if (accessToken && alpha === 'true') {
+          console.log(accessToken);
+          setAccessToken(accessToken);
+        }
+      } catch (e) {
+        console.log(e.message);
+      }
+    };
+  
+    getUserMetadata();
+  }, [getAccessTokenSilently, setAccessToken]);
 
   return (
     <Router>

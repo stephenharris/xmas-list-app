@@ -15,9 +15,9 @@ function SignUp() {
 
   return (
     <div>
-      <h1> {isLoading || isAuthenticated? "Signing in..." : "Sign up"}</h1>
+      <h1> {isLoading ? "Signing in..." : "Sign up"}</h1>
 
-      {(isLoading || isAuthenticated) && <div><Loading/></div>}
+      {(isLoading) && <div><Loading/></div>}
 
       <div className="signUpContainer">
         <Santa/>
