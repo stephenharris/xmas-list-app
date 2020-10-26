@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
 import Button from './Button';
 
 const Auth0LoginButton = ({match}) => {
-  const { user, loginWithRedirect } = useAuth0();
+  const { user, loginWithRedirect, getAccessTokenSilently } = useAuth0();
+  //isAuthenticated
 
   const alpha = localStorage.getItem('alpha');
   console.log(alpha)
@@ -17,6 +18,7 @@ const Auth0LoginButton = ({match}) => {
           scope: "*",
         });
   
+        console.log("accessToken");
         console.log(accessToken);
       } catch (e) {
         console.log(e.message);
@@ -24,7 +26,7 @@ const Auth0LoginButton = ({match}) => {
     };
   
     getUserMetadata();
-  }, []);
+  }, [getAccessTokenSilently]);
 
   return alpha && alpha === "true" ? <Button  onClick={() => loginWithRedirect()}>Log In</Button> : null;
 };
