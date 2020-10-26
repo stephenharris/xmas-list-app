@@ -1,5 +1,5 @@
 {
     "domain": "xmas-c7e.eu.auth0.com",
     "clientId": "3w8S9kwuTMASuhM4wjGwrwlHueZCSIFQ",
-    "audience": "{API_IDENTIFIER}"
+    "audience": "xmas-api"
   }
