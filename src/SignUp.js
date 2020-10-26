@@ -37,7 +37,7 @@ function SignUp() {
           </li>
           <li>
             <strong>Share your list</strong>
-            <div>with friends and family. They can mark the ones they plan to get you, and other's will see those items crossed-out. </div>
+            <div>with friends and family. They can mark the gifts they plan to get you, and others will see those items crossed-out. </div>
           </li>
         </ol>}
 
