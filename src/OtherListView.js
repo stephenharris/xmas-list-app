@@ -1,25 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import api from './services/api';
 import { connect } from "react-redux";
-import { getAccessToken, isLoggedIn } from "./redux/selectors";
 import Tree from './Tree';
 import Loading from './Loading';
 import './MyListView.css';
-import { setAccessToken } from './redux/actions';
 import classNames from './class-names';
 import NotFound from './NotFound';
 import Forbidden from './Forbidden';
 import FavouriteButton from './FavouriteButton';
 
 
-const mapStateToProps = state => {
-  const accessToken = getAccessToken(state);
-  const isUserLoggedIn = isLoggedIn(state);
-  return { accessToken, isUserLoggedIn };
-
-};
-
-function OtherListView({accessToken, match}) {
+function OtherListView({match}) {
         
   const [items, setItems] = useState([]);
   const [name, setName] = useState(null);
@@ -149,5 +140,5 @@ function OtherListView({accessToken, match}) {
   );
 }
 
-export default connect(mapStateToProps, {setAccessToken})(OtherListView);
+export default connect()(OtherListView);
 

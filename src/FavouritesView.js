@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import Tree from './Tree';
 import Loading from './Loading';
 import './MyListView.css';
-import { setAccessToken } from './redux/actions';
 
 import {
     Link,
@@ -62,5 +61,5 @@ function FavouritesView() {
   );
 }
 
-export default connect(null, {setAccessToken})(FavouritesView);
+export default connect()(FavouritesView);
 

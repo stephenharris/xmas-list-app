@@ -1,23 +1,12 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { getAccessToken, isLoggedIn } from "./redux/selectors";
 import GoogleLoginButton from './GoogleLoginButton';
 import Auth0LoginButton from './Auth0LoginButton';
 import SantaList from './SantaList';
 import LoginWithEmailForm from './LoginWithEmailForm';
-
 import './LoginToViewList.css';
 
-const mapStateToProps = state => {
-  const accessToken = getAccessToken(state);
-  const isUserLoggedIn = isLoggedIn(state);
-  return { accessToken, isUserLoggedIn };
-
-};
-
-
-function LoginToViewList({isUserLoggedIn, accessToken, location}) {
-    
+function LoginToViewList() {
   return (
     <div>
       <h1>Looks like you're on the naughty list</h1>
@@ -36,5 +25,5 @@ function LoginToViewList({isUserLoggedIn, accessToken, location}) {
   );
 }
 
-export default connect(mapStateToProps)(LoginToViewList);
+export default connect()(LoginToViewList);
 
