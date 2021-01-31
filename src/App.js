@@ -43,8 +43,6 @@ function App({isUserLoggedIn, loggedInUser, setAccessToken}) {
     setRedirectHome(true);
   }
 
-  console.log(user)
-
   useEffect(() => {
     const getUserMetadata = async () => {
       try {
@@ -52,9 +50,7 @@ function App({isUserLoggedIn, loggedInUser, setAccessToken}) {
           audience: `xmas-api`,
           scope: "*",
         });
-        console.log("accessToken via auth0");
         if (accessToken) {
-          console.log(accessToken);
           setAccessToken(accessToken);
         }
       } catch (e) {

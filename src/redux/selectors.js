@@ -31,7 +31,6 @@ export const isLoggedIn = store => {
     var decodedToken = jwt.decode(accessToken, {complete: true});
     var dateNow = new Date();
 
-    console.log(decodedToken);
     if(decodedToken.exp < dateNow.getTime()){
         return false;
     }

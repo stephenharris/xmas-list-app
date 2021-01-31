@@ -7,11 +7,8 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case STORE_ACCESS_TOKEN: {
-        console.log(STORE_ACCESS_TOKEN, action, state);
       const { token } = action.payload;
 
-      console.log(action.payload);
-      console.log(token);
       localStorage.setItem('accessToken', token ? token : '');
       return {
         ...state,
