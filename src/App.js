@@ -7,7 +7,6 @@ import FavouritesView from './FavouritesView';
 import NotFound from './NotFound';
 import LoginToViewList from './LoginToViewList';
 import Elf from './Elf';
-import LoginWithEmail from './LoginWithEmail';
 import Button from './Button';
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -91,7 +90,6 @@ function App({isUserLoggedIn, loggedInUser, setAccessToken}) {
         {isUserLoggedIn ?  <FavouritesView /> :  <SignUp />}
       </Route>
 
-      <Route path="/login/:token" component={LoginWithEmail}/>
       <Route component={NotFound} />
     </Switch>
 

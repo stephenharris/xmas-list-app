@@ -5,36 +5,6 @@ import {getAccessToken} from '../redux/selectors';
 
 class Api {
 
-    loginWithGoogle(token) {
-        return axios.post(
-            process.env.REACT_APP_API_URL + '/login',
-            {
-              strategy: 'google',
-              token: token
-            }
-        );
-    }
-
-    loginWithEmail(token) {
-        return axios.post(
-            process.env.REACT_APP_API_URL + '/login',
-            {
-              strategy: 'email',
-              token: token
-            }
-        );
-    }
-
-    sendConfirmationEmail(email, redirect) {
-        return axios.post(
-            process.env.REACT_APP_API_URL + '/confirm-email',
-            {
-              email: email,
-              redirect: redirect
-            }
-        );
-    }
-
     getMyList() {
         const accessToken = getAccessToken(store.getState());
         return axios.get(
