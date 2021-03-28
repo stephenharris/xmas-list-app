@@ -30,10 +30,10 @@ const mapStateToProps = state => {
 };
 
 
-function App({isUserLoggedIn, loggedInUser, setAccessToken}) {
+function App({isUserLoggedIn, setAccessToken}) {
 
   const [redirectHome, setRedirectHome] = useState(false);
-  const { user, logout, isAuthenticated, getAccessTokenSilently } = useAuth0();
+  const { logout, isAuthenticated, getAccessTokenSilently } = useAuth0();
 
   const onClickLogOut = (event) => {
     event.preventDefault();
