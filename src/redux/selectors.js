@@ -33,8 +33,8 @@ export const isLoggedIn = store => {
 
     console.log(decodedToken.payload.exp);
     console.log(dateNow.getTime());
-    
-    if(decodedToken.payload.exp < dateNow.getTime()){
+
+    if(decodedToken.payload.exp < (dateNow.getTime()/1000)){
         console.log("token expired");
         return false;
     }
