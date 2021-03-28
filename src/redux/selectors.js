@@ -31,12 +31,13 @@ export const isLoggedIn = store => {
     var decodedToken = jwt.decode(accessToken, {complete: true});
     var dateNow = new Date();
 
+    console.log(decodedToken.payload.exp);
+    console.log(dateNow.getTime());
+    
     if(decodedToken.payload.exp < dateNow.getTime()){
         console.log("token expired");
         return false;
     }
-    console.log(decodedToken.payload.exp);
-    console.log(dateNow.getTime());
     console.log("token valid");
     return true;
 }
