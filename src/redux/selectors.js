@@ -35,7 +35,7 @@ export const isLoggedIn = store => {
         console.log("token expired");
         return false;
     }
-    console.log(decodedToken.exp);
+    console.log(decodedToken);
     console.log(dateNow.getTime());
     console.log("token valid");
     return true;
