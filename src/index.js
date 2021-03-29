@@ -26,6 +26,7 @@ ReactDOM.render(
       onRedirectCallback={onRedirectCallback}
       useRefreshTokens={true}
       cacheLocation="localstorage"
+      scope="*"
     >
       <Provider store={store}><App /></Provider>
     </Auth0Provider>,
