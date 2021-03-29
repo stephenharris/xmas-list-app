@@ -47,7 +47,7 @@ function App({isUserLoggedIn, setAccessToken}) {
     const getUserMetadata = async () => {
       try {
         const accessToken = await getAccessTokenSilently({
-          audience: `xmas-c7e.eu.auth0.com`,
+          audience: `xmas-api`,
           scope: "*",
         });
         console.log(accessToken);
