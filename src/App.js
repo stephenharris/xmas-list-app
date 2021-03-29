@@ -45,6 +45,7 @@ function App({isUserLoggedIn, setAccessToken}) {
 
   useEffect(() => {
     const getUserMetadata = async () => {
+      console.log("getUserMetadata called");
       try {
         const accessToken = await getAccessTokenSilently({
           audience: `xmas-api`,
@@ -55,10 +56,12 @@ function App({isUserLoggedIn, setAccessToken}) {
           setAccessToken(accessToken);
         }
       } catch (e) {
+        console.log("login error");
         console.log(e.message);
       }
     };
   
+    console.log("getUserMetadata()");
     getUserMetadata();
   }, [getAccessTokenSilently, setAccessToken]);
 
