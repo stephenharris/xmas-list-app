@@ -31,7 +31,7 @@ function MyListView({match}) {
         setLoading(false);
         console.log(error);
       });
-  }, [listLastChanged]);
+  }, [listId, listLastChanged]);
 
   const addItem = (description) => {
     api
