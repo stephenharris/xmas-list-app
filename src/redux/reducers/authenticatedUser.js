@@ -1,7 +1,7 @@
 import { STORE_ACCESS_TOKEN } from "../actionTypes";
 
 const initialState = {
-  access_token: sessionStorage.getItem('accessToken')
+  access_token: localStorage.getItem('accessToken')
 };
 
 export default function(state = initialState, action) {
@@ -9,7 +9,7 @@ export default function(state = initialState, action) {
     case STORE_ACCESS_TOKEN: {
       const { token } = action.payload;
 
-      sessionStorage.setItem('accessToken', token ? token : '');
+      localStorage.setItem('accessToken', token ? token : '');
       return {
         ...state,
         access_token: token

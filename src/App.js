@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import SignUp from './SignUp';
 import OtherListView from './OtherListView';
+import MyListsView from './MyListsView';
 import MyListView from './MyListView';
 import FavouritesView from './FavouritesView';
 import NotFound from './NotFound';
@@ -81,10 +82,10 @@ function App({isUserLoggedIn, setAccessToken}) {
     </div>}
 
     <Switch>
-      <Route path="/list/:listId" component={isUserLoggedIn ? OtherListView : LoginToViewList}>
-      </Route>
+      <Route path="/list/:listId" component={isUserLoggedIn ? OtherListView : LoginToViewList}></Route>
+      <Route path="/mine/:listId" component={isUserLoggedIn ? MyListView : SignUp}></Route>
       <Route exact path="/">
-        {isUserLoggedIn ?  <MyListView /> :  <SignUp />}
+        {isUserLoggedIn ?  <MyListsView /> :  <SignUp />}
       </Route>
       <Route exact path="/favourites">
         {isUserLoggedIn ?  <FavouritesView /> :  <SignUp />}

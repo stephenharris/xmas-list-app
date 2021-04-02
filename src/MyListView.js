@@ -7,12 +7,13 @@ import Button from './Button';
 import Input from './Input';
 
 
-function MyListView({location}) {
+function MyListView({match}) {
+
+  const listId = match.params.listId;
         
   const [editing, setEditing] = useState(false);
   const [name, setName] = useState("");
   const [items, setItems] = useState(false);
-  const [listId, setListId] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [listLastChanged, setListLastChanged] = useState((new Date()).getTime());
   const [isCopied, setIsCopied] = useState(false);
@@ -20,10 +21,9 @@ function MyListView({location}) {
   useEffect(() => {
     setLoading(true);
     api
-      .getMyList()
+      .getMyList(listId)
       .then(function (response) {
         setItems(response.data.items);
-        setListId(response.data.listId);
         setName(response.data.name);
         setLoading(false);
       })
@@ -35,7 +35,7 @@ function MyListView({location}) {
 
   const addItem = (description) => {
     api
-      .addToMyList(description)
+      .addToMyList(listId, description)
       .then(function (response) {
         setListLastChanged((new Date()).getTime());
       })
@@ -49,7 +49,7 @@ function MyListView({location}) {
     setEditing(false);
     setName(event.target.name.value)
     api
-    .updateMyList(event.target.name.value)
+    .updateMyList(listId, event.target.name.value)
     .then(function (response) {
       console.log(response);
     })
@@ -65,7 +65,7 @@ function MyListView({location}) {
 
   const deleteItem = (itemId) => {
     api
-      .removeFromMyList(itemId)
+      .removeFromMyList(listId, itemId)
       .then((response) => {
         setListLastChanged((new Date()).getTime());
       })
@@ -93,7 +93,7 @@ function MyListView({location}) {
     setIsCopied(true);
   }
   
-  let url = window.location.href.replace(/\/$/, "");
+  let url = window.location.href.replace(/\/mine\/.+$/, "");
   const listUrl = `${url}/list/${listId}`;
   const ref = React.createRef();
   return (

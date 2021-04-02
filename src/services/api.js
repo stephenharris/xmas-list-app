@@ -5,18 +5,37 @@ import {getAccessToken} from '../redux/selectors';
 
 class Api {
 
-    getMyList() {
+
+    getMyLists() {
         const accessToken = getAccessToken(store.getState());
         return axios.get(
-            process.env.REACT_APP_API_URL + '/list-item/mine/',
+            process.env.REACT_APP_API_URL + '/list',
+            { headers: {"Authorization" : `Bearer ${accessToken}`} }
+        );
+    }
+    createList(name) {
+        const accessToken = getAccessToken(store.getState());
+        return axios.post(
+            process.env.REACT_APP_API_URL + '/list',
+            {
+                "name": name 
+            },
+            { headers: {"Authorization" : `Bearer ${accessToken}`} }
+        );
+    }
+    
+    getMyList(listId) {
+        const accessToken = getAccessToken(store.getState());
+        return axios.get(
+            process.env.REACT_APP_API_URL + `/list/${listId}`,
             { headers: {"Authorization" : `Bearer ${accessToken}`} }
         );
     }
 
-    updateMyList(name) {
+    updateMyList(listId, name) {
         const accessToken = getAccessToken(store.getState());
         return axios.put(
-            process.env.REACT_APP_API_URL + '/list-item/mine/',
+            process.env.REACT_APP_API_URL + `/list/${listId}`,
             {
                 "name": name 
             },
@@ -51,10 +70,10 @@ class Api {
         );
     }
 
-    addToMyList(description) {
+    addToMyList(listId, description) {
         const accessToken = getAccessToken(store.getState());
         return axios.post(
-            process.env.REACT_APP_API_URL + '/list-item/',
+            process.env.REACT_APP_API_URL + `/list/${listId}/item/`,
             {
               "description": description 
             },
@@ -62,10 +81,10 @@ class Api {
         );
     }
 
-    removeFromMyList(itemId) {
+    removeFromMyList(listId, itemId) {
         const accessToken = getAccessToken(store.getState());
         return axios.delete(
-            process.env.REACT_APP_API_URL + `/list-item/${itemId}`,
+            process.env.REACT_APP_API_URL + `/list/${listId}/item/${itemId}`,
             { headers: {"Authorization" : `Bearer ${accessToken}`} }
         );
     }
@@ -73,7 +92,7 @@ class Api {
     getList(listId) {
         const accessToken = getAccessToken(store.getState());
         return axios.get(
-            process.env.REACT_APP_API_URL + `/list-item/${listId}/`,
+            process.env.REACT_APP_API_URL + `/list/${listId}/`,
             { headers: {"Authorization" : `Bearer ${accessToken}`} }
         );
     }
@@ -81,7 +100,7 @@ class Api {
     markAsBought(listId, itemUuid) {
         const accessToken = getAccessToken(store.getState());
         return axios.post(
-            process.env.REACT_APP_API_URL + `/mark-item/${listId}/${itemUuid}`,
+            process.env.REACT_APP_API_URL + `/list/${listId}/item/${itemUuid}/mark`,
             {},
             { headers: {"Authorization" : `Bearer ${accessToken}`} }
         );
@@ -90,7 +109,7 @@ class Api {
     unmarkAsBought(listId, itemUuid) {
         const accessToken = getAccessToken(store.getState());
         return axios.delete(
-            process.env.REACT_APP_API_URL + `/mark-item/${listId}/${itemUuid}`,
+            process.env.REACT_APP_API_URL + `/list/${listId}/item/${itemUuid}/mark`,
             { headers: {"Authorization" : `Bearer ${accessToken}`} }
         );
     }
