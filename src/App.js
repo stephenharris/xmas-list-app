@@ -9,7 +9,6 @@ import NotFound from './NotFound';
 import LoginToViewList from './LoginToViewList';
 import Button from './Button';
 import { useAuth0 } from "@auth0/auth0-react";
-import Loading from './Loading';
 
 import {
   BrowserRouter as Router,
@@ -79,8 +78,6 @@ function App({isUserLoggedIn, setAccessToken}) {
         </ul>
       </nav>
     </div>}
-
-    <Loading></Loading>
     <Switch>
       <Route path="/list/:listId" component={isUserLoggedIn ? OtherListView : LoginToViewList}></Route>
       <Route path="/mine/:listId" component={isUserLoggedIn ? MyListView : SignUp}></Route>
