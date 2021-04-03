@@ -40,7 +40,7 @@ function App({isUserLoggedIn, setAccessToken}) {
     event.preventDefault();
     setAccessToken(null);
 
-    logout({ returnTo: `${location.host}/` })
+    logout({ returnTo: `${window.location.host}/` })
     setRedirectHome(true);
   }
 
