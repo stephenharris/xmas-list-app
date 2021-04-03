@@ -1,11 +1,11 @@
 @import 'src/_colors.scss';
 
-.signUpContainer #wavingSanta {
+.signUpContainer #splashImage {
 	margin-right:50px;
 }
 
 @media only screen and (max-width: 600px) {
-	.signUpContainer #wavingSanta {
+	.signUpContainer #splashImage {
 		display: none;
 	}
 }

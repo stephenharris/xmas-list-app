@@ -12,12 +12,12 @@ function SignUp() {
 
   return (
     <div>
-      <h1> {isLoading ? "Signing in..." : "Sign up"}</h1>
+      <h1> {isLoading ? "Signing in..." : "Wishlist"}</h1>
 
       {(isLoading) && <div><Loading/></div>}
 
       <div className="signUpContainer">
-        <img style={{"marginRight":"2em"}} src={icon} alt="" />
+        <img id="splashImage" src={icon} alt="" />
         {!isLoading && !isAuthenticated && <ol>
           <li>
             <strong>Log-in</strong>
