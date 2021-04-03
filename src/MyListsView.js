@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import api from './services/api';
 import Tree from './Tree';
 import Loading from './Loading';
-import './MyListView.css';
+import './MyListView.scss';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
 import Input from './Input';
@@ -49,7 +49,6 @@ function MyListsView({location}) {
       {isLoading && <Loading/>}
 
       {!isLoading && lists.length === 0 && <>
-        <Tree/>
         <p className="empty-wishlist">You have no lists.</p>
       </> }
 

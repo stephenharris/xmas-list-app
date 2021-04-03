@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import api from './services/api';
 import Tree from './Tree';
 import Loading from './Loading';
-import './MyListView.css';
+import './MyListView.scss';
 import Button from './Button';
 import Input from './Input';
 
@@ -116,7 +116,6 @@ function MyListView({match}) {
       {isLoading && !listId && <Loading/>}
 
       {!isLoading && items && items.length === 0 && <>
-        <Tree/>
         <p className="empty-wishlist">Your wish list is empty.</p>
       </> }
 

@@ -1,12 +1,14 @@
+@import 'src/_colors.scss';
+
 html {
-  border-top: 8px solid #fd4848;    
+  border-top: 8px solid $accent;   
 }
 
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 18px;
   -webkit-font-smoothing: antialiased;
-  background: #FFF0A5;
+  background: $background;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;
   padding: 10px;
@@ -14,10 +16,10 @@ body {
 }
 
 h1 {
-  font-family: 'Mountains of Christmas', cursive;
+  font-family: $font-family;
   font-size: 48px;
   text-align: center;
-  color:#fd4848;
+  color:$accent;   
   font-weight: bold;
   margin-top: 0;
   display: flex;

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Button.css';
+import './Button.scss';
 import classNames from 'classnames';
 import { Link } from "react-router-dom";
 function ButtonLink(props) {

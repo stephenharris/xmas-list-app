@@ -3,8 +3,8 @@ import Auth0LoginButton from './Auth0LoginButton';
 import Santa from './Santa';
 import { useAuth0 } from "@auth0/auth0-react";
 import Loading from './Loading';
-
-import './SignUp.css';
+import icon from './gift-flat.png'; // Tell webpack this JS file uses this image
+import './SignUp.scss';
 
 function SignUp() {
   
@@ -18,8 +18,7 @@ function SignUp() {
       {(isLoading) && <div><Loading/></div>}
 
       <div className="signUpContainer">
-        <Santa/>
-
+        <img style={{"marginRight":"2em"}} src={icon} alt="" />
         {!isLoading && !isAuthenticated && <ol>
           <li>
             <strong>Log-in</strong>

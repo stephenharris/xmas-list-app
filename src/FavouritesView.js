@@ -3,7 +3,7 @@ import api from './services/api';
 import { connect } from "react-redux";
 import Tree from './Tree';
 import Loading from './Loading';
-import './MyListView.css';
+import './MyListView.scss';
 
 import {
     Link,
@@ -37,7 +37,6 @@ function FavouritesView() {
       {state === "loading" && !favourites.length && <Loading/>}
 
       {state === "success" && favourites && favourites.length === 0 && <>
-        <Tree/>
         <p className="empty-wishlist">Your have no saved lists.</p>
       </> }
 

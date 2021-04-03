@@ -3,7 +3,7 @@ import api from './services/api';
 import { connect } from "react-redux";
 import Tree from './Tree';
 import Loading from './Loading';
-import './MyListView.css';
+import './MyListView.scss';
 import classNames from './class-names';
 import NotFound from './NotFound';
 import Forbidden from './Forbidden';
@@ -112,7 +112,6 @@ function OtherListView({match}) {
       {state === "success" && <h1>{name}{isFavourite !== null && <FavouriteButton onClick={onClickToggleFavourite} isFavourite={isFavourite}/>}</h1>}
 
       {state === "success" && items && items.length === 0 && <>
-        <Tree/>
         <p className="empty-wishlist">Your wish list is empty.</p>
       </> }
 

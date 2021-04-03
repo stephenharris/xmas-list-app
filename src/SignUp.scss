@@ -1,3 +1,4 @@
+@import 'src/_colors.scss';
 
 .signUpContainer #wavingSanta {
 	margin-right:50px;
@@ -31,7 +32,7 @@
 
 .signUpContainer ol li::before {
 	content: counter(custom-counter);
-	background:#499f68;
+	background:$primary;
 	width:1.5em;
 	height:1.5em;
 	border-radius: 100%;
@@ -42,6 +43,6 @@
 
 .signUpContainer ol strong{
 	display: inline-block;
-	color:#499f68;
+	color:$primary;
 	margin: 0 10px;
 }

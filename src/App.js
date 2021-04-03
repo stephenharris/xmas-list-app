@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import './App.css';
+import './App.scss';
 import SignUp from './SignUp';
 import OtherListView from './OtherListView';
 import MyListsView from './MyListsView';
