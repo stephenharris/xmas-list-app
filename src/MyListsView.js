@@ -3,9 +3,9 @@ import api from './services/api';
 import Loading from './Loading';
 import './MyListView.scss';
 import Button from './Button';
-import ButtonLink from './ButtonLink';
 import Input from './Input';
-
+import EditIcon from './EditIcon';
+import { Link } from "react-router-dom";
 
 function MyListsView({location}) {
         
@@ -57,8 +57,9 @@ function MyListsView({location}) {
             {lists.map((list) => {
               return (<li key={list.id} id={list.id}>
                 {list.name}
-
-                <ButtonLink to={`/mine/${list.id}`} style={{float:"right", marginLeft:"1em"}} variants={["secondary", "small"]} >Edit list</ButtonLink>
+                <Link to to={`/mine/${list.id}`} style={{float:"right", marginLeft:"1em"}}>
+                  <EditIcon></EditIcon>
+                </Link>
                </li>);
             })}
           </ol>
