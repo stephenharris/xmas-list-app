@@ -56,7 +56,7 @@ function MyListsView({location}) {
           <ol>
             {lists.map((list) => {
               return (<li key={list.id} id={list.id}>
-                {list.name} / {list.id}
+                {list.name}
 
                 <ButtonLink to={`/mine/${list.id}`} style={{float:"right", marginLeft:"1em"}} variants={["secondary", "small"]} >Edit list</ButtonLink>
                </li>);
