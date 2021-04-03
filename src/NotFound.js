@@ -1,5 +1,4 @@
 import React from 'react';
-import SantaStuckInChimney from './SantaStuckInChimney';
 
 function NotFound() {
 

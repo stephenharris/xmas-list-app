@@ -1,6 +1,5 @@
 import React from 'react';
 import Auth0LoginButton from './Auth0LoginButton';
-import Santa from './Santa';
 import { useAuth0 } from "@auth0/auth0-react";
 import Loading from './Loading';
 import icon from './gift-flat.png'; // Tell webpack this JS file uses this image
