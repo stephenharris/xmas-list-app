@@ -57,7 +57,7 @@ function MyListsView({location}) {
             {lists.map((list) => {
               return (<li key={list.id} id={list.id}>
                 {list.name}
-                <Link to to={`/mine/${list.id}`} style={{float:"right", marginLeft:"1em"}}>
+                <Link to={`/mine/${list.id}`} style={{float:"right", marginLeft:"1em"}}>
                   <EditIcon></EditIcon>
                 </Link>
                </li>);
