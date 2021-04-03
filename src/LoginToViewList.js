@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
 import Auth0LoginButton from './Auth0LoginButton';
-import SantaList from './SantaList';
 import './LoginToViewList.css';
 import icon from './gift-flat.png'; // Tell webpack this JS file uses this image
 

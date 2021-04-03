@@ -1,5 +1,4 @@
 import React from 'react';
-import SantaList from './SantaList';
 import { Link } from "react-router-dom";
 
 

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import api from './services/api';
-import Tree from './Tree';
 import Loading from './Loading';
 import './MyListView.scss';
 import Button from './Button';

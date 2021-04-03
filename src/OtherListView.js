@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import api from './services/api';
 import { connect } from "react-redux";
-import Tree from './Tree';
 import Loading from './Loading';
 import './MyListView.scss';
 import classNames from './class-names';

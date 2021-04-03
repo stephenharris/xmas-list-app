@@ -1,5 +1,4 @@
 import React from 'react';
-import './SantaList.css';
 
 function Santa() {
 
