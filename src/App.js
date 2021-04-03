@@ -7,7 +7,6 @@ import MyListView from './MyListView';
 import FavouritesView from './FavouritesView';
 import NotFound from './NotFound';
 import LoginToViewList from './LoginToViewList';
-import Elf from './Elf';
 import Button from './Button';
 import { useAuth0 } from "@auth0/auth0-react";
 import Loading from './Loading';
@@ -72,7 +71,6 @@ function App({isUserLoggedIn, setAccessToken}) {
       {redirectHome && <Redirect to="/"/>}
 
      {(isUserLoggedIn || isAuthenticated ) && <div className="appbar">
-      <Elf/>
       <nav>
         <ul>
           <li><Link to="/">My list</Link></li>
