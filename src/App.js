@@ -40,7 +40,7 @@ function App({isUserLoggedIn, setAccessToken}) {
     event.preventDefault();
     setAccessToken(null);
 
-    logout({ returnTo: "https://xmas.c7e.uk/" })
+    logout({ returnTo: `${location.host}/` })
     setRedirectHome(true);
   }
 
@@ -49,7 +49,7 @@ function App({isUserLoggedIn, setAccessToken}) {
       console.log("getUserMetadata called");
       try {
         const accessToken = await getAccessTokenSilently({
-          audience: `xmas-api`,
+          audience: `wishlist-api`,
           scope: "*",
         });
         console.log(accessToken);
