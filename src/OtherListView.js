@@ -123,7 +123,7 @@ function OtherListView({match}) {
                   <span className={classNames({'item-description--bought': item.boughtBy !== null, 'item-description': true})}>{item.description}</span>
                   <label className='mark'>
                     <input type="checkbox" disabled={item.boughtBy === 'someonelse'} checked={item.boughtBy} value={item.id} onChange={(event) => onClickToggleMark(event, item)}/>
-                    {item.boughtBy === 'you' ?  "You've said you're getting this item" : (item.boughtBy === 'someonelse' ? 'Someone else is getting this' : 'Get this item')}
+                    {item.boughtBy === 'you' ?  "You've said you're getting this item" : (item.boughtBy === 'someoneelse' ? 'Someone else is getting this' : 'Get this item')}
                   </label>
                 </span>
               </li>);
