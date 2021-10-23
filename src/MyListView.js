@@ -129,9 +129,7 @@ function MyListView({match}) {
 
       {isLoading && !listId && <Loading/>}
 
-      {!isLoading && items && items.length === 0 && <>
-        <p className="empty-wishlist">Your wish list is empty.</p>
-      </> }
+      {!isLoading && items && items.length === 0 && <p className="empty-wishlist">Your wish list is empty.</p> }
 
       {items && items.length > 0 &&<>
 
@@ -194,9 +192,9 @@ function MyListView({match}) {
       </form>}
 
 
-      {!isLoading && items && items.length === 0 && <>
+      {!isLoading && items && items.length === 0 && <p className="empty-wishlist">
         <Button variants={["secondary", "small", "red"]}  style={{"marginLeft":"20px"}} onClick={(ev)=>onClickDeleteList(ev)}>Delete list</Button>
-      </> }
+      </p> }
       
 
     </div>
