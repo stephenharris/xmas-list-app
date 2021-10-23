@@ -121,7 +121,7 @@ function OtherListView({match}) {
               return (<li key={item.id} id={item.id}>
                 <span>
                   <span className={classNames({'item-description--bought': item.boughtBy !== null, 'item-description': true})}>
-                    <Linkify target="_blank">{item.description}</Linkify>
+                    <Linkify properties={{target: '_blank'}}>{item.description}</Linkify>
                   </span>
                   <label className='mark'>
                     <input type="checkbox" disabled={item.boughtBy === 'someonelse'} checked={item.boughtBy} value={item.id} onChange={(event) => onClickToggleMark(event, item)}/>

@@ -159,7 +159,7 @@ function MyListView({match}) {
             {items.map((item) => {
               return (<li key={item.id} id={item.id}>
                 <span>
-                  <span className="item-description"><Linkify target="_blank">{item.description}</Linkify></span>
+                  <span className="item-description"><Linkify properties={{target: '_blank'}}>{item.description}</Linkify></span>
                   <Button variants={["secondary", "small", "red"]}  style={{"marginLeft":"20px"}} onClick={(ev)=>onClickRemove(ev, item.id)}>Remove</Button>
                 </span>
               </li>);
