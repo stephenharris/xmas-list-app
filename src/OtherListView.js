@@ -7,7 +7,7 @@ import classNames from './class-names';
 import NotFound from './NotFound';
 import Forbidden from './Forbidden';
 import FavouriteButton from './FavouriteButton';
-
+import Linkify from 'react-linkify';
 
 function OtherListView({match}) {
         
@@ -120,7 +120,9 @@ function OtherListView({match}) {
             {items.map((item) => {
               return (<li key={item.id} id={item.id}>
                 <span>
-                  <span className={classNames({'item-description--bought': item.boughtBy !== null, 'item-description': true})}>{item.description}</span>
+                  <span className={classNames({'item-description--bought': item.boughtBy !== null, 'item-description': true})}>
+                    <Linkify target="_blank">{item.description}</Linkify>
+                  </span>
                   <label className='mark'>
                     <input type="checkbox" disabled={item.boughtBy === 'someonelse'} checked={item.boughtBy} value={item.id} onChange={(event) => onClickToggleMark(event, item)}/>
                     {item.boughtBy === 'you' ?  "You've said you're getting this item" : (item.boughtBy === 'someoneelse' ? 'Someone else is getting this' : 'Get this item')}
