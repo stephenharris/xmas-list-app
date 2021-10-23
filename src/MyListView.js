@@ -5,10 +5,12 @@ import './MyListView.scss';
 import Button from './Button';
 import Input from './Input';
 import Linkify from 'react-linkify';
+import { useHistory } from "react-router-dom";
 
 function MyListView({match}) {
 
   const listId = match.params.listId;
+  let history = useHistory();
         
   const [editing, setEditing] = useState(false);
   const [name, setName] = useState("");
@@ -76,6 +78,19 @@ function MyListView({match}) {
   const onClickRemove = (event, itemId) => {
     event.preventDefault();
     deleteItem(itemId);
+  }
+
+  const onClickDeleteList = (event) => {
+    event.preventDefault();
+    api
+      .deleteList(listId)
+      .then((response) => {
+        console.log(response);
+        history.push('/')
+      })
+      .catch(function (error) {
+        console.log(error);
+      }); 
   }
 
   const onSubmit = (event) => {
@@ -177,6 +192,12 @@ function MyListView({match}) {
         <Input style={{"margin":"auto"}} name="description" label="Item"/>
         <Button className="primary" style={{"margin":"auto", "marginBottom":"20px", "marginTop":"20px"}} type="submit">Add something to your wish list</Button>
       </form>}
+
+
+      {!isLoading && items && items.length === 0 && <>
+        <Button variants={["secondary", "small", "red"]}  style={{"marginLeft":"20px"}} onClick={(ev)=>onClickDeleteList(ev)}>Delete list</Button>
+      </> }
+      
 
     </div>
   );

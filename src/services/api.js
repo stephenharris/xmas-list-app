@@ -32,6 +32,14 @@ class Api {
         );
     }
 
+    deleteList(listId) {
+        const accessToken = getAccessToken(store.getState());
+        return axios.delete(
+            process.env.REACT_APP_API_URL + `/list/${listId}`,
+            { headers: {"Authorization" : `Bearer ${accessToken}`} }
+        );
+    }
+
     updateMyList(listId, name) {
         const accessToken = getAccessToken(store.getState());
         return axios.put(
