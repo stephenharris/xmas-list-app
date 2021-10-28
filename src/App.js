@@ -72,7 +72,7 @@ function App({isUserLoggedIn, setAccessToken}) {
      {(isUserLoggedIn || isAuthenticated ) && <div className="appbar">
       <nav>
         <ul>
-          <li><Link to="/">My list</Link></li>
+          <li><Link to="/">My lists</Link></li>
           <li><Link to="/favourites">My favourites</Link></li>
           <li><Button variants={["link"]} onClick={onClickLogOut}>Log-out</Button></li>
         </ul>
