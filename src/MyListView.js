@@ -147,7 +147,7 @@ function MyListView({match}) {
               
               <span className="list-url">{listUrl}</span>
 
-            {document.queryCommandSupported('copy') && <Button onClick={copyToClipboard} style={{"width":"175px", "textAlign":"left"}} variants={["secondary", "green", "small"]}>
+            {document.queryCommandSupported('copy') && <Button onClick={copyToClipboard} style={{"width":"120px", "textAlign":"left"}} variants={["secondary", "green", "small"]}>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" >
                 <rect width="14" height="14" x="3" y="3" rx="2" style={{"fill":"#499f68"}}></rect>
                   <rect width="14" height="14" x="7" y="7"  rx="2" style={{"fill":"hsl(141.6, 52.1%, 66.5%)"}}></rect>
