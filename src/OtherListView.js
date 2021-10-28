@@ -8,9 +8,11 @@ import NotFound from './NotFound';
 import Forbidden from './Forbidden';
 import FavouriteButton from './FavouriteButton';
 import Linkify from 'react-linkify';
+import { useHistory } from "react-router-dom";
 
 function OtherListView({match}) {
         
+  let history = useHistory();
   const [items, setItems] = useState([]);
   const [name, setName] = useState(null);
   const listId = match.params.listId;
