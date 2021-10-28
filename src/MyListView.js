@@ -24,6 +24,10 @@ function MyListView({match}) {
     api
       .getMyList(listId)
       .then(function (response) {
+        if (!response.data.isOwner) {
+          history.push(`/list/${listId}`);
+          return;
+        }
         setItems(response.data.items);
         setName(response.data.name);
         setLoading(false);

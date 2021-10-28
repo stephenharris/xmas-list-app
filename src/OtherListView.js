@@ -23,6 +23,10 @@ function OtherListView({match}) {
     api
       .getList(listId)
       .then((response) => {
+        if (response.data.isOwner) {
+          history.push(`/mine/${listId}`);
+          return;
+        }
         setItems(response.data.items);
         setName(response.data.name);
         setState("success");
