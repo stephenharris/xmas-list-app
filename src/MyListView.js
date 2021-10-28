@@ -149,7 +149,7 @@ function MyListView({match}) {
                   <rect width="14" height="14" x="7" y="7"  rx="2" style={{"fill":"hsl(141.6, 52.1%, 66.5%)"}}></rect>
                 </svg>
 
-                {!isCopied ? 'Copy to clipboard' : 'Copied!'}
+                {!isCopied ? 'Copy link' : 'Copied!'}
 
               <textarea
                 style={{"width":"1px", "height":"1px", "background":"none", "border":"none",
