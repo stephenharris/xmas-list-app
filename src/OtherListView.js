@@ -48,7 +48,7 @@ function OtherListView({match}) {
         }
         console.log(error.response);
       });
-  }, [listLastChanged, listId]);
+  }, [listLastChanged, listId, history]);
 
   useEffect(() => {
     api
