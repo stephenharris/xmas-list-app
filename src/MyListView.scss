@@ -58,14 +58,22 @@
 }
 
 .list ol {
-    max-width: 600px;
+    max-width: 100%;
     min-width: 300px;
     margin: auto;
     padding-left: 0;
 }
+
+@media (min-width: 600px) {
+    .list ol {
+        max-width: 600px;
+    }
+}
+
 .list ol .item-description {
     font-family: 'Caveat', cursive;
     font-size:32px;
+    overflow-wrap: break-word;
 }
 
 .item-description--bought{
@@ -73,12 +81,11 @@
 }
 
 .list ol li {
-    margin: 30px 20px;
+    margin: 30px 0px;
     padding-bottom: 20px;
 }
 ol li > span {
-    display: flex;
-    flex-direction: column;
+    display: block;
     justify-content: space-between;
     align-items: first baseline;
 }
@@ -88,7 +95,7 @@ button svg {
 }
 
 label.mark {
- font-family:'Open Sans';
+ font-family:'Open Sans,sans-serif';
  margin: 0 0 1rem 0;
  cursor:pointer;
 }
