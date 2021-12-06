@@ -131,8 +131,8 @@ function OtherListView({match}) {
                       <a target="blank" href={decoratedHref} key={key}>{decoratedText}</a>
                       )}>{item.description}</Linkify>
                   </span>
-                  <label className='mark'>
-                    <input type="checkbox" disabled={item.boughtBy === 'someonelse'} checked={item.boughtBy} value={item.id} onChange={(event) => onClickToggleMark(event, item)}/>
+                  <label className={classNames({'item-bought-by-you': item.boughtBy === "you", 'item-bought-by-someonelse': item.boughtBy === "someonelse", 'mark': true})}>
+                    <input type="checkbox" disabled={item.boughtBy === 'someonelse' ? "disabled" : false} checked={item.boughtBy} value={item.id} onChange={(event) => onClickToggleMark(event, item)}/>
                     {item.boughtBy === 'you' ?  "You've said you're getting this item" : (item.boughtBy === 'someoneelse' ? 'Someone else is getting this' : 'Get this item')}
                   </label>
                 </span>

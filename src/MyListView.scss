@@ -73,10 +73,12 @@
 }
 
 .list ol li {
-    margin: 20px;
+    margin: 30px 20px;
+    padding-bottom: 20px;
 }
 ol li > span {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: first baseline;
 }
@@ -89,4 +91,12 @@ label.mark {
  font-family:'Open Sans';
  margin: 0 0 1rem 0;
  cursor:pointer;
+}
+
+.label.mark.item-bought-by-you {
+    color: $accent;
+}
+
+.label.mark.item-bought-by-someoneelse {
+    color: $primraryGrey;
 }
