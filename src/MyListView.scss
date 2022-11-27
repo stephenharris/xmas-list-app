@@ -9,7 +9,7 @@
 .share-list {
     max-width: 750px;
     margin:auto;
-    background: #e3f9eb;
+    background: hsl(141.6, 66.1%, 93.5%);
     padding: 10px 20px;
     border: 4px dashed $accent;
 }
@@ -89,6 +89,7 @@ ol li > span {
     display: block;
     justify-content: space-between;
     align-items: first baseline;
+    flex-direction: column;
 }
 
 button svg {

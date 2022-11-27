@@ -1,5 +1,6 @@
 import React from 'react';
 import Auth0LoginButton from './Auth0LoginButton';
+import Santa from './Santa';
 import { useAuth0 } from "@auth0/auth0-react";
 import Loading from './Loading';
 import icon from './gift-flat.png'; // Tell webpack this JS file uses this image
@@ -17,7 +18,8 @@ function SignUp() {
       {(isLoading) && <div><Loading/></div>}
 
       <div className="signUpContainer">
-        <img id="splashImage" src={icon} alt="" />
+      { process.env.REACT_APP_THEME ==='xmas' ? <Santa/> : <img id="splashImage" src={icon} alt="" /> }
+
         {!isLoading && !isAuthenticated && <ol>
           <li>
             <strong>Log-in</strong>

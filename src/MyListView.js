@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import api from './services/api';
+import Tree from './Tree';
 import Loading from './Loading';
 import './MyListView.scss';
 import Button from './Button';
@@ -133,7 +134,10 @@ function MyListView({match}) {
 
       {isLoading && !listId && <Loading/>}
 
-      {!isLoading && items && items.length === 0 && <p className="empty-wishlist">Your wish list is empty.</p> }
+      {!isLoading && items && items.length === 0 && <>
+        { process.env.REACT_APP_THEME ==='xmas' && <Tree/> }
+        <p className="empty-wishlist">Your wish list is empty.</p>
+      </> }
 
       {items && items.length > 0 &&<>
 

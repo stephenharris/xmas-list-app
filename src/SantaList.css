@@ -2,7 +2,7 @@
 	width: 25px;
 	height: 200px;
 	transform:rotate(-55deg);
-	background: #F8ECC2;
+	background: #E8E4D8;
 	position:absolute;
 	z-index:2;
 	top:100px;
@@ -11,7 +11,7 @@
 }
   
 #SantaList .scroll::before{
-	background:#F8ECC2;
+	background:#E8E4D8;
 	box-shadow: inset 0 0 2px 2px rgba(0,0,0,1);
 	content: ' ';
 	width:35px;

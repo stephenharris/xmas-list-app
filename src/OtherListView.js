@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import api from './services/api';
 import { connect } from "react-redux";
+import Tree from './Tree';
 import Loading from './Loading';
 import './MyListView.scss';
 import classNames from './class-names';
@@ -117,6 +118,7 @@ function OtherListView({match}) {
       {state === "success" && <h1>{name}{isFavourite !== null && <FavouriteButton onClick={onClickToggleFavourite} isFavourite={isFavourite}/>}</h1>}
 
       {state === "success" && items && items.length === 0 && <>
+        { process.env.REACT_APP_THEME ==='xmas' && <Tree/> }
         <p className="empty-wishlist">Your wish list is empty.</p>
       </> }
 

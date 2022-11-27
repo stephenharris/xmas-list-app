@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import api from './services/api';
 import { connect } from "react-redux";
+import Tree from './Tree';
 import Loading from './Loading';
 import './MyListView.scss';
 
@@ -36,6 +37,7 @@ function FavouritesView() {
       {state === "loading" && !favourites.length && <Loading/>}
 
       {state === "success" && favourites && favourites.length === 0 && <>
+        { process.env.REACT_APP_THEME ==='xmas' && <Tree/>}
         <p className="empty-wishlist">Your have no saved lists.</p>
       </> }
 
