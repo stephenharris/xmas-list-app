@@ -10,7 +10,7 @@ jobs:
       - run: npm install
       - aws-cli/setup:
           profile_name: default
-          configure_default_region: eu-west-1
+          region: eu-west-1
       - run: aws --version
       - run: aws s3 ls
       - run: npm run deploy
