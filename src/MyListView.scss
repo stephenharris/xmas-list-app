@@ -1,4 +1,4 @@
-@import 'src/_colors.scss';
+@use 'colors';
 
 .editTitleButtons {
     width: 240px;
@@ -11,7 +11,7 @@
     margin:auto;
     background: hsl(141.6, 66.1%, 93.5%);
     padding: 10px 20px;
-    border: 4px dashed $accent;
+    border: 4px dashed colors.$accent;
 }
 
 .copy-list-url {
@@ -103,9 +103,9 @@ label.mark {
 }
 
 .label.mark.item-bought-by-you {
-    color: $accent;
+    color: colors.$accent;
 }
 
 .label.mark.item-bought-by-someoneelse {
-    color: $primraryGrey;
+    color: colors.$primraryGrey;
 }

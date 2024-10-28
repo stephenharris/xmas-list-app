@@ -1,4 +1,4 @@
-@import 'src/_colors.scss';
+@use 'colors';
 
 .signUpContainer #splashImage {
 	margin-right:50px;
@@ -32,7 +32,7 @@
 
 .signUpContainer ol li::before {
 	content: counter(custom-counter);
-	background:$primary;
+	background:colors.$primary;
 	width:1.5em;
 	height:1.5em;
 	border-radius: 100%;
@@ -43,6 +43,6 @@
 
 .signUpContainer ol strong{
 	display: inline-block;
-	color:$primary;
+	color:colors.$primary;
 	margin: 0 10px;
 }

@@ -1,14 +1,14 @@
-@import 'src/_colors.scss';
+@use 'colors';
 
 html {
-  border-top: 8px solid $accent;   
+  border-top: 8px solid colors.$accent;   
 }
 
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 18px;
   -webkit-font-smoothing: antialiased;
-  background: $background;
+  background: colors.$background;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;
   padding: 10px;
@@ -16,10 +16,10 @@ body {
 }
 
 h1 {
-  font-family: $font-family;
+  font-family: colors.$font-family;
   font-size: 48px;
   text-align: center;
-  color:$accent;   
+  color: colors.$accent;   
   font-weight: bold;
   margin-top: 0;
   display: flex;
