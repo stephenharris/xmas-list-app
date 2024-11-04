@@ -11,7 +11,7 @@ function LoginToViewList() {
     <div>
        { process.env.REACT_APP_THEME ==='xmas' ? <h1>Looks like you're on the naughty list</h1> : <h1>Log-in to view this list</h1>}
 
-      <div className="signInContainer">
+      <div className={"signInContainer theme-"+process.env.REACT_APP_THEME}>
           { process.env.REACT_APP_THEME ==='xmas' ? <SantaList/> : <img src={icon} alt="" />}
           <div className="signInContainer__form">
             { process.env.REACT_APP_THEME ==='xmas' &&<p className="signInContainer__subHeader">(Actually, you just need to log-in)</p> }

@@ -3,6 +3,11 @@
 	align-items: center;
 	justify-content: center;
 	padding-top:30px;
+	flex-direction: column;
+}
+
+.signInContainer.theme-xmas {
+	flex-direction: row;
 }
 
 .signInContainer__form {
